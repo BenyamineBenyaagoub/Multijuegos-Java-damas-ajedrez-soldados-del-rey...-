@@ -22,7 +22,7 @@ public class Main {
         t.crearPeones();
         t.getT();
         while (true) {
-            System.out.println("1"+"1");
+            
             System.out.println("fila");
             int fila = sc.nextInt();
             System.out.println("columna");

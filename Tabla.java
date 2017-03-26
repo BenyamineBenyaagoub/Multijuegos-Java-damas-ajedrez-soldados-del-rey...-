@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Javier
  */
 public class Tabla {
-
+Scanner sc = new Scanner(System.in);
     private final int mida = 8;
     //poner movimientos en el objeto de la pieza
     //char tabla [][]= new char[mida][mida];
@@ -109,24 +109,28 @@ public class Tabla {
         this.a = a;
         this.b = b;
     }
-
+    
     public void mover(int c, int d) {
+        if (misCasillas[a][b].cont == null ){
+            pmover(a= sc.nextInt(),b=sc.nextInt());
+           //algo para seleccionar posiciones de nuevoo ya que esas son null
+        }
         if (misCasillas[a][b].cont.getcolor() == false ) {
-          if(misCasillas[a][b].cont.mov( a, b,c, d)) { 
-            if (misCasillas[c][d].db() || misCasillas[c][d].cont.getcolor()==false) {
+          if(misCasillas[a][b].cont.mov( a, b, c, d)) { 
+            if (misCasillas[c][d].db() || misCasillas[c][d].cont.getcolor()==true) {
                 pro[a][b] = misCasillas[a][b];
                 misCasillas[a][b].cont.movimientos++;
                 
                 misCasillas[a][b] = null;
                 misCasillas[c][d] = pro[a][b];
             } else {
-                System.out.println("*************************************");
+                System.out.println("*****************************************");
                 System.out.println("**********no se puede mover ahi**********");
-                System.out.println("1"+"1");
+                
 
             } }
           else{
-              System.out.println("s");
+              System.out.println("no se puede realizar ese movimiento");
           }
 
         }else {
@@ -134,12 +138,5 @@ public class Tabla {
         
     }
     }
-//    public void mover(int c, int d) {
-//      
-//       misCasillas[c][d].setCont(misCasillas[a][b].getCont());
-//      
-//       
-//       misCasillas[a][b]=null;
-//        
-//    }
+
 }

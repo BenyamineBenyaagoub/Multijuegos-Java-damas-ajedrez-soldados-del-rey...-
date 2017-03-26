@@ -9,34 +9,39 @@ package LeAjedrez;
  *
  * @author Javier
  */
-public class Peon extends Piezas{
+public class Peon extends Piezas {
+
     Tabla t;
-    public Peon(boolean colorcito){
-       
+    Piezas p ;
+    public Peon(boolean colorcito) {
+
 //       super.hcolor(colorcito);
-       super.setColor(colorcito);
-       if (colorcito){
-           super.setforma('♙');
-       }else{
-           super.setforma('♟');
-       }
-       
+        super.setColor(colorcito);
+        if (colorcito) {
+            super.setforma('♙');
+        } else {
+            super.setforma('♟');
+        }
+
     }
-   
-    int [][] movimientos= {{0,1}};
+
     
-    public boolean mov( int a,int b,int c, int d){
-     if(super.movimientos == 0){
-         if ( c-a==1 && d-b==0 || c-a==2 && d-b==0  ){
-           return true; 
-         }
-         
-     }
-       if ( c-a==1 && d-b==0 ){
-           return true; 
-     
-       }
-       return false;
+    public  boolean mov(int a, int b, int c, int d) {
+
+            if (super.movimientos == 0 && c - a == 2 && d - b == 0 || c - a == 1 && d - b == 0) {
+                return true;
+            }
+        movimientoComer(a,b,c,d);
+        
+        return false;
     }
-    
+    public static boolean movimientoComer(int a, int b, int c, int d){
+        Tabla t = new Tabla();
+        if (t.misCasillas[c][d].cont.getcolor()==true && c - a == 1 && d - b == -1 || d - b == 1) {
+            
+            System.out.println("sadsafsadsd");
+            return true;
+        }
+        return false;
+    }
 }

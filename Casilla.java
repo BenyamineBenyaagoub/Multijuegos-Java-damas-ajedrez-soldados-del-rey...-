@@ -57,7 +57,7 @@ public class Casilla {
     }
     
     public Piezas getCont(){
-       return this.cont; 
+       return cont; 
     }
 
 }
