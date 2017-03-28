@@ -32,7 +32,12 @@ public class Casilla {
         }
     }
     
-    public boolean db(){
+   
+    
+    public Piezas getPieza(){
+        return cont;
+    }
+    public boolean noTienePieza(){
         if(cont == null){
             return true;
         }
@@ -57,7 +62,7 @@ public class Casilla {
     }
     
     public Piezas getCont(){
-       return cont; 
+       return this.cont; 
     }
 
 }

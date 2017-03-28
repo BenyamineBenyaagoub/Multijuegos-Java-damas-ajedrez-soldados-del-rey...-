@@ -16,17 +16,19 @@ public class Main {
     public static void main(String[] args) {
         Tabla t = new Tabla();
         Casilla ca = new Casilla(1, 1, true, null);
+        Peon p;
         Scanner sc = new Scanner(System.in);
         System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟");
         t.t();
         t.crearPeones();
         t.getT();
         while (true) {
-            
+            System.out.println("1"+"1");
             System.out.println("fila");
             int fila = sc.nextInt();
             System.out.println("columna");
             int columna = sc.nextInt();
+            
             t.pmover(fila, columna);
 
             System.out.println("fila");
@@ -36,6 +38,7 @@ public class Main {
             t.mover(fila, columna);
             t.t();
             t.getT();
+            
         }
 
     }

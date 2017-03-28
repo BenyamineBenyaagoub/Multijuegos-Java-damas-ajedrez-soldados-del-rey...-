@@ -11,11 +11,10 @@ package LeAjedrez;
  */
 public class Peon extends Piezas {
 
-    Tabla t;
-    Piezas p ;
-    public Peon(boolean colorcito) {
+    boolean colorcito;
 
-//       super.hcolor(colorcito);
+    public Peon(boolean colorcito) {
+        this.colorcito = colorcito;
         super.setColor(colorcito);
         if (colorcito) {
             super.setforma('♙');
@@ -25,23 +24,86 @@ public class Peon extends Piezas {
 
     }
 
+    public static boolean comerNegras(int a, int b, int c, int d) {
+
+        if (Tabla.misCasillas[c][d].cont != null) {
+            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1) {
+                System.out.println("funciona");
+                return true;
+
+            }
+
+        }
+        return false;
+    }
     
-    public  boolean mov(int a, int b, int c, int d) {
+      public static boolean comerblancas(int a, int b, int c, int d) {
+
+        if (Tabla.misCasillas[c][d].cont != null) {
+            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1) {
+                System.out.println("funciona");
+                return true;
+
+            }
+
+        }
+        return false;
+    }
+    
+
+    public static boolean noComerDeEnfrente(int a, int b, int c, int d) {
+
+        if (Tabla.misCasillas[c][d].cont != null) {
+
+            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 0) {
+                System.out.println("funciona1");
+                return true;
+
+            }
+
+        }
+        return false;
+    }
+    
+    
+    public static boolean noComerDeEnfrenteB(int a, int b, int c, int d) {
+
+        if (Tabla.misCasillas[c][d].cont != null) {
+
+            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == -1 && d - b == 0) {
+                System.out.println("funciona1");
+                return true;
+
+            }
+
+        }
+        return false;
+    }
+    
+
+    public boolean mov(int a, int b, int c, int d) {
+        if (colorcito) {
+
+            if (super.movimientos == 0 && c - a == -2 && d - b == 0 || c - a == -1 && d - b == 0) {
+                return true;
+            }
+            
+        } else {
+
+            if (comerNegras(a, b, c, d)) {
+                return true;
+            }
+
+            if (noComerDeEnfrente(a, b, c, d)) {
+                return false;
+            }
 
             if (super.movimientos == 0 && c - a == 2 && d - b == 0 || c - a == 1 && d - b == 0) {
                 return true;
             }
-        movimientoComer(a,b,c,d);
-        
-        return false;
-    }
-    public static boolean movimientoComer(int a, int b, int c, int d){
-        Tabla t = new Tabla();
-        if (t.misCasillas[c][d].cont.getcolor()==true && c - a == 1 && d - b == -1 || d - b == 1) {
-            
-            System.out.println("sadsafsadsd");
-            return true;
+
         }
         return false;
     }
+
 }
