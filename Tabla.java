@@ -87,25 +87,25 @@ public class Tabla {
 ////        t.tab (peon1.posicionx(1), peon1.posiciony(1),peon1);
 //        
 //    }
-    public void crearPeones() {
-
-        Piezas peon[] = new Peon[8];
-        Piezas peonN[] = new Peon[8];
-        for (int i = 0; i < 8; i++) {
-
-            peon[i] = new Peon(false);
-            misCasillas[peon[i].posiciony(1)][peon[i].posicionx(i)].setCont(peon[i]);
-            misCasillas[peon[i].posiciony(1)][peon[i].posicionx(i)].setChar(peon[i].forma);
-
-            peonN[i] = new Peon(true);
-            misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setCont(peonN[i]);
-            misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setChar(peonN[i].forma);
-       
-
-        }
+//    public void crearPeones() {
+//
+//        Piezas peon[] = new Peon[8];
+//        Piezas peonN[] = new Peon[8];
+//        for (int i = 0; i < 8; i++) {
+//
+//            peon[i] = new Peon(false);
+//            misCasillas[peon[i].posiciony(1)][peon[i].posicionx(i)].setCont(peon[i]);
+//            misCasillas[peon[i].posiciony(1)][peon[i].posicionx(i)].setChar(peon[i].forma);
+//
+//            peonN[i] = new Peon(true);
+//            misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setCont(peonN[i]);
+//            misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setChar(peonN[i].forma);
+//       
+//
+//        }
 
 //        t.tab (peon1.posicionx(1), peon1.posiciony(1),peon1);
-    }
+//    }
     int a;
     int b;
 
@@ -120,14 +120,12 @@ public class Tabla {
             if (misCasillas[c][d].noTienePieza() || misCasillas[c][d].cont.getcolor()==true) {
                 pro[a][b] = misCasillas[a][b];
                 misCasillas[a][b].cont.movimientos++;
-                
                 misCasillas[a][b] = null;
                 misCasillas[c][d] = pro[a][b];
             } else {
                 System.out.println("*************************************");
                 System.out.println("**********no se puede mover ahi**********");
-                System.out.println("1"+"1");
-
+       
             } }
           else{
               System.out.println("fuera");
@@ -144,6 +142,5 @@ public class Tabla {
 //      
 //       
 //       misCasillas[a][b]=null;
-//        
 //    }
 }

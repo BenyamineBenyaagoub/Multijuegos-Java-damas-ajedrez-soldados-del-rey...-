@@ -15,12 +15,13 @@ public class Main {
 
     public static void main(String[] args) {
         Tabla t = new Tabla();
+        PosicionInicial pose = new PosicionInicial();
         Casilla ca = new Casilla(1, 1, true, null);
         Peon p;
         Scanner sc = new Scanner(System.in);
         System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟");
         t.t();
-        t.crearPeones();
+        PosicionInicial.colocarFichasAjedrez();
         t.getT();
         while (true) {
             System.out.println("1"+"1");

@@ -20,7 +20,7 @@ public class Torre extends Piezas{
         }
 
     }
-    int  movCaballo[][]= new int [2][8];
+    
     
     public  boolean mov(int a, int b, int c, int d) {
         
