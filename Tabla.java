@@ -112,6 +112,7 @@ public class Tabla {
     public void pmover(int a, int b) {
         this.a = a;
         this.b = b;
+        misCasillas[a][b].cont.camino();
     }
 
     public void mover(int c, int d) {

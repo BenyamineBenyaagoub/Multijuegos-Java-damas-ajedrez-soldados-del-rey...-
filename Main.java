@@ -19,7 +19,7 @@ public class Main {
         Casilla ca = new Casilla(1, 1, true, null);
         Peon p;
         Scanner sc = new Scanner(System.in);
-        System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟");
+        System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ 0 ♞ ♟");
         t.t();
         PosicionInicial.colocarFichasAjedrez();
         t.getT();
@@ -31,7 +31,7 @@ public class Main {
             int columna = sc.nextInt();
             
             t.pmover(fila, columna);
-
+            t.getT();
             System.out.println("fila");
             fila = sc.nextInt();
             System.out.println("columna");

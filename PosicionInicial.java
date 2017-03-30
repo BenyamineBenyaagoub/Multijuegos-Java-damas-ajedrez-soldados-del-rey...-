@@ -86,7 +86,7 @@ public class PosicionInicial {
         public static void colocarFichasAjedrez(){
             crearTorres();
             crearCaballos();
-            crearPeones();
+            //crearPeones();
             crearelefantes();
         }
         

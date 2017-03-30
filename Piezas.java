@@ -53,4 +53,7 @@ public class Piezas {
        return false;
    }
     public int movimientos = 0;
+    public void camino(){
+        
+    }
 }

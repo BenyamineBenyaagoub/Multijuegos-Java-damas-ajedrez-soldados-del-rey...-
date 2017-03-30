@@ -28,7 +28,7 @@ public class Peon extends Piezas {
 
         if (Tabla.misCasillas[c][d].cont != null) {
             if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1) {
-                System.out.println("funciona");
+
                 return true;
 
             }
@@ -36,12 +36,12 @@ public class Peon extends Piezas {
         }
         return false;
     }
-    
-      public static boolean comerblancas(int a, int b, int c, int d) {
+
+    public static boolean comerblancas(int a, int b, int c, int d) {
 
         if (Tabla.misCasillas[c][d].cont != null) {
             if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1) {
-                System.out.println("funciona");
+
                 return true;
 
             }
@@ -49,14 +49,13 @@ public class Peon extends Piezas {
         }
         return false;
     }
-    
 
     public static boolean noComerDeEnfrente(int a, int b, int c, int d) {
 
         if (Tabla.misCasillas[c][d].cont != null) {
 
             if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 0) {
-                System.out.println("funciona1");
+
                 return true;
 
             }
@@ -64,14 +63,13 @@ public class Peon extends Piezas {
         }
         return false;
     }
-    
-    
+
     public static boolean noComerDeEnfrenteB(int a, int b, int c, int d) {
 
         if (Tabla.misCasillas[c][d].cont != null) {
 
             if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == -1 && d - b == 0) {
-                System.out.println("funciona1");
+
                 return true;
 
             }
@@ -79,7 +77,6 @@ public class Peon extends Piezas {
         }
         return false;
     }
-    
 
     public boolean mov(int a, int b, int c, int d) {
         if (colorcito) {
@@ -87,7 +84,7 @@ public class Peon extends Piezas {
             if (super.movimientos == 0 && c - a == -2 && d - b == 0 || c - a == -1 && d - b == 0) {
                 return true;
             }
-            
+
         } else {
 
             if (comerNegras(a, b, c, d)) {
