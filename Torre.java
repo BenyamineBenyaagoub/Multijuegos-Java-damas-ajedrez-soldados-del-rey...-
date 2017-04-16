@@ -23,7 +23,10 @@ public class Torre extends Piezas {
     }
 
     public boolean mov(int a, int b, int c, int d) {
+        if (obstaculo(a, b, c, d)) {
 
+            return false;
+        }
         int movx[] = new int[8];
         int movy[] = new int[8];
         for (int i = 0; i < 8; i++) {
@@ -34,20 +37,82 @@ public class Torre extends Piezas {
                 System.out.println("toodo ok");
                 return true;
             }
+
+            if (a != c) {
+                if (d - b == 0) {
+                    return true;
+                }
+            }
+            if (a == c) {
+                if (c - a == 0) {
+                    return true;
+                }
+
+            }
         }
 
         return false;
     }
 
-    public void camino() {
-        for (int i = 0; i < 8; i++) {
-            if (Tabla.misCasillas[i][0].getCont() == null) {
-                Tabla.misCasillas[i][0].setChar('#');
-        //        Tabla.misCasillas[-i][0].setChar('#');
-         //       Tabla.misCasillas[0][i].setChar('#');
-       //         Tabla.misCasillas[0][-i].setChar('#');
+    public static boolean obstaculo(int a, int b, int a1, int b1) {
+
+        if (a == a1) {
+            if (b < b1) {
+                for (int i = b + 1; i < b1; i++) {
+                    if (Tabla.misCasillas[a][i].cont != null) {
+                        return true;
+                    }
+
+                }
+            }
+            if (b > b1) {
+                for (int i = b1 + 1; i < b; i++) {
+                    if (Tabla.misCasillas[a][i].cont != null) {
+                        return true;
+                    }
+
+                }
             }
         }
 
+        if (a != a1) {
+            if (a < a1) {
+                for (int i = a + 1; i < a1; i++) {
+                    if (Tabla.misCasillas[i][b].cont != null) {
+                        return true;
+                    }
+
+                }
+            }
+            if (a > a1) {
+                for (int i = a1 + 1; i < a; i++) {
+                    if (Tabla.misCasillas[i][b].cont != null) {
+                        return true;
+                    }
+
+                }
+            }
+        }
+
+//        if (a != c) {
+//            for (int i = c; i < c - a; i++) {
+//                if (Tabla.misCasillas[a + i][d].cont == null) {
+//
+//                    System.out.println("v");
+//                    return true;
+//                }
+//            }
+//            if (a == c) {
+//                for (int i = d; i < d - b; i++) {
+//                    if (Tabla.misCasillas[c][b + i].cont == null) {
+//                        System.out.println("h");
+//                        return true;
+//                    }
+//                }
+//            }
+//
+//        }
+        return false;
     }
+
 }

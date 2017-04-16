@@ -24,14 +24,14 @@ public class Main {
         PosicionInicial.colocarFichasAjedrez();
         t.getT();
         while (true) {
-            System.out.println("1"+"1");
             System.out.println("fila");
             int fila = sc.nextInt();
+            
             System.out.println("columna");
             int columna = sc.nextInt();
-            
+
             t.pmover(fila, columna);
-            t.getT();
+
             System.out.println("fila");
             fila = sc.nextInt();
             System.out.println("columna");
@@ -39,7 +39,7 @@ public class Main {
             t.mover(fila, columna);
             t.t();
             t.getT();
-            
+
         }
 
     }

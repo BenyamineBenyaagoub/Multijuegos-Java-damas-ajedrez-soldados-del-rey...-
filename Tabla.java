@@ -53,15 +53,15 @@ public class Tabla {
     }
 
     void getT() {
-        System.out.println("[* ][ 0 ] [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ] [ 6 ] [ 7]");
+        System.out.println("[] [0] [1] [2] [3] [4] [5] [6] [7]");
         for (int y = 0; y < mida; y++) {
-            System.out.print("[ " + y + " ]");
+            System.out.print(" " + y + " ");
             for (int x = 0; x < mida; x++) {
-                System.out.print("[ ");
+                System.out.print(" ");
 
                 System.out.print(misCasillas[y][x].getcolor());
 
-                System.out.print(" ]");
+                System.out.print(" ");
 
             }
             System.out.println(" ");
@@ -112,7 +112,7 @@ public class Tabla {
     public void pmover(int a, int b) {
         this.a = a;
         this.b = b;
-        misCasillas[a][b].cont.camino();
+        
     }
 
     public void mover(int c, int d) {

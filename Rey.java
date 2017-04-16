@@ -21,4 +21,13 @@ public class Rey extends Piezas {
         }
 
     }
+     public boolean mov(int a, int b, int a1, int b1) {
+         
+          if (Math.abs(1) == Math.abs(a1-a) || a1-a == 0 ) {
+              if (Math.abs(1) == Math.abs(b1-b) || b1-b == 0) {
+                  return true; 
+              }     
+         }
+         return false;
+     }
 }

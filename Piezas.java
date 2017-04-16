@@ -53,7 +53,11 @@ public class Piezas {
        return false;
    }
     public int movimientos = 0;
-    public void camino(){
-        
+    public static boolean obstaculo(int a, int b, int c, int d) {
+        return true;
     }
+    
+    
+    
+    
 }
