@@ -21,6 +21,14 @@ public class Caballo extends Piezas{
         }
 
     }
-     
+     public boolean mov(int a, int b, int a1, int b1) {
+        if (Math.abs(a-a1) == Math.abs(2) && Math.abs(b-b1) == Math.abs(1) ||  Math.abs(a-a1)== Math.abs(1) && Math.abs(b-b1) == Math.abs(2)){
+            return true;
+        }
+         
+         
+        return false;
+     }
+    
     
 }

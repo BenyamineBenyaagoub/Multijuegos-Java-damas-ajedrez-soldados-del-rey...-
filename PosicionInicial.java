@@ -92,14 +92,25 @@ public class PosicionInicial {
         Piezas reyn = new Rey(true);
         Tabla.misCasillas[reyb.posiciony(0)][reyb.posicionx(4)].setCont(reyb);
         Tabla.misCasillas[reyb.posiciony(0)][reyb.posicionx(4)].setChar(reyb.forma);
+        Tabla.misCasillas[reyn.posiciony(7)][reyn.posicionx(3)].setCont(reyn);
+        Tabla.misCasillas[reyn.posiciony(7)][reyn.posicionx(3)].setChar(reyn.forma);
     }
-
+    public static void colocarReinas() {
+        Piezas reinaB = new Reina(false);
+        Piezas reyinaN = new Reina(true);
+        Tabla.misCasillas[reinaB.posiciony(0)][reinaB.posicionx(3)].setCont(reinaB);
+        Tabla.misCasillas[reinaB.posiciony(0)][reinaB.posicionx(3)].setChar(reinaB.forma);
+        Tabla.misCasillas[reyinaN.posiciony(7)][reyinaN.posicionx(4)].setCont(reyinaN);
+        Tabla.misCasillas[reyinaN.posiciony(7)][reyinaN.posicionx(4)].setChar(reyinaN.forma);
+    }
     public static void colocarFichasAjedrez() {
         colocarreyes();
         crearTorres();
         crearCaballos();
         crearPeones();
         crearelefantes();
+        colocarReinas();
+                
     }
 
 //

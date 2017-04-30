@@ -9,32 +9,46 @@ package LeAjedrez;
  *
  * @author Javier
  */
-public class Alfil extends Piezas{
-    
-     public Alfil(boolean colorcito) {
+public class Reina extends Piezas {
+    public Reina(boolean colorcito) {
 
         super.setColor(colorcito);
         if (colorcito) {
-            super.setforma('♗');
+            super.setforma('♔');
         } else {
-            super.setforma('♝');
+            super.setforma('♚');
         }
 
     }
-    public boolean mov(int a, int b, int a1, int b1) {
-        if (estorbo(a,b,a1,b1)) {
-            System.out.println("algo raro");
-            return false;
-         
-        } 
-         
+     public boolean mov(int a, int b, int a1, int b1) {
+    
+          int movx[] = new int[8];
+        int movy[] = new int[8];
+        for (int i = 0; i < 8; i++) {
+            movx[i] = i;
+            movy[i] = i;
+
+            if (movy[i] == a1 - a && b1 - b == 0 || movx[i] == b1 - b && a1 - a == 0) {
+                System.out.println("toodo ok");
+                return true;
+            }
+
+            if (a != a1) {
+                if (b1 - b == 0) {
+                    return true;
+                }
+            }
+            if (a == a1) {
+                if (a1 - a == 0) {
+                    return true;
+                }
+
+            }
+        }
         if ( Math.abs( b-b1)== Math.abs(a-a1 )) {
             return true;
         }
         
-        return false;
-    }
-    public static boolean estorbo(int a, int b, int a1, int b1){
         if (Math.abs(b-b1) == Math.abs(a-a1) && a <  a1 && b < b1) {
             for (int i = 1; i < a1-a ; i++) {
                 if (Tabla.misCasillas[a+i][b+i].cont != null) {
@@ -51,7 +65,7 @@ public class Alfil extends Piezas{
             }
             
         }
-          
         return false;
-    }
-}
+     }
+     }
+
