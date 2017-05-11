@@ -59,7 +59,7 @@ public class Tabla {
             for (int x = 0; x < mida; x++) {
                 System.out.print(" ");
 
-                System.out.print(misCasillas[y][x].getcolor());
+                System.out.print(misCasillas[y][x].getchar());
 
                 System.out.print(" ");
 
@@ -116,13 +116,17 @@ public class Tabla {
     }
 
     public void mover(int c, int d) {
-        if (misCasillas[a][b].cont.getcolor() == false ) {
+        if (misCasillas[a][b].cont.getcolor() == Turnos.elTurno ) {
           if(misCasillas[a][b].cont.mov( a, b,c, d)) { 
             if (misCasillas[c][d].noTienePieza() || misCasillas[c][d].cont.getcolor()==true) {
+             
                 pro[a][b] = misCasillas[a][b];
                 misCasillas[a][b].cont.movimientos++;
                 misCasillas[a][b] = null;
                 misCasillas[c][d] = pro[a][b];
+                
+                //Turnos.cambiarTurno();
+                
             } else {
                 System.out.println("*************************************");
                 System.out.println("**********no se puede mover ahi**********");

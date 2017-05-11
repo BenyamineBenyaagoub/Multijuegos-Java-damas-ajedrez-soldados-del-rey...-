@@ -27,7 +27,7 @@ public class Peon extends Piezas {
     public static boolean comerNegras(int a, int b, int c, int d) {
 
         if (Tabla.misCasillas[c][d].cont != null) {
-            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1) {
+            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1 || c - a == 1 && d - b == -1) {
 
                 return true;
 
@@ -40,7 +40,7 @@ public class Peon extends Piezas {
     public static boolean comerblancas(int a, int b, int c, int d) {
 
         if (Tabla.misCasillas[c][d].cont != null) {
-            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1) {
+            if (Tabla.misCasillas[c][d].cont.getcolor() == true && c - a == 1 && d - b == 1 || c - a == 1 && d - b == -1 ) {
 
                 return true;
 

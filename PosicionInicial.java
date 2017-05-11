@@ -19,9 +19,9 @@ public class PosicionInicial {
     Scanner sc = new Scanner(System.in);
 
     public static void crearPeones() {
-
         Piezas peon[] = new Peon[8];
         Piezas peonN[] = new Peon[8];
+
         for (int i = 0; i < 8; i++) {
 
             peon[i] = new Peon(false);
@@ -95,6 +95,7 @@ public class PosicionInicial {
         Tabla.misCasillas[reyn.posiciony(7)][reyn.posicionx(3)].setCont(reyn);
         Tabla.misCasillas[reyn.posiciony(7)][reyn.posicionx(3)].setChar(reyn.forma);
     }
+
     public static void colocarReinas() {
         Piezas reinaB = new Reina(false);
         Piezas reyinaN = new Reina(true);
@@ -103,6 +104,7 @@ public class PosicionInicial {
         Tabla.misCasillas[reyinaN.posiciony(7)][reyinaN.posicionx(4)].setCont(reyinaN);
         Tabla.misCasillas[reyinaN.posiciony(7)][reyinaN.posicionx(4)].setChar(reyinaN.forma);
     }
+
     public static void colocarFichasAjedrez() {
         colocarreyes();
         crearTorres();
@@ -110,9 +112,16 @@ public class PosicionInicial {
         crearPeones();
         crearelefantes();
         colocarReinas();
-                
+
     }
 
+    public static void damasDlancas() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+
+            }
+        }
+    }
 //
 //    public static void posepeonesb(){
 //        

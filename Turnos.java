@@ -9,14 +9,14 @@ package LeAjedrez;
  *
  * @author ibra
  */
-// esta clase sirve para cambiar turnos.
+
 public class Turnos {
     static boolean elTurno;
-    //depende de esta variable se mueve color o otro
+    
  public static void cambiarTurno(){
-     //Metodo para cambiar turno poner al final del metedo movimiento.
-     System.out.println("cambio!!!!!!!");
-     int turno = 2;
+
+     System.out.println("cambio de turno!!!!!!!");
+     int turno = 1;
      if (turno == 2){
          turno = 1;
          elTurno = true;

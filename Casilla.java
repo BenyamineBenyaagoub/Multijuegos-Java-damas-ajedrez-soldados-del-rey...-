@@ -48,7 +48,7 @@ public class Casilla {
  
     
     
-    public char getcolor() {
+    public char getchar() {
         return elcolor;
     }
 

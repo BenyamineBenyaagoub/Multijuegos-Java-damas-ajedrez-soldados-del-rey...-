@@ -24,6 +24,7 @@ public class Main {
         PosicionInicial.colocarFichasAjedrez();
         t.getT();
         while (true) {
+            Promociones.ascention();
             System.out.println("fila");
             int fila = sc.nextInt();
             
