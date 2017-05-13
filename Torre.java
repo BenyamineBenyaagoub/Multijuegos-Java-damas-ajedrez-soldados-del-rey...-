@@ -34,7 +34,7 @@ public class Torre extends Piezas {
             movy[i] = i;
 
             if (movy[i] == c - a && d - b == 0 || movx[i] == d - b && c - a == 0) {
-                System.out.println("toodo ok");
+                
                 return true;
             }
 

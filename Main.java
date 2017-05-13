@@ -23,7 +23,8 @@ public class Main {
         t.t();
         PosicionInicial.colocarFichasAjedrez();
         t.getT();
-        while (true) {
+        boolean loop = true;
+        while (loop) {
             Promociones.ascention();
             System.out.println("fila");
             int fila = sc.nextInt();
@@ -40,7 +41,9 @@ public class Main {
             t.mover(fila, columna);
             t.t();
             t.getT();
-
+            if (Victoria.victoriaAjedrez()) {
+               loop = false; 
+            }
         }
 
     }
