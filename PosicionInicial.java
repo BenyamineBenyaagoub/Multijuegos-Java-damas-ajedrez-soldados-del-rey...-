@@ -106,22 +106,61 @@ public class PosicionInicial {
     }
 
     public static void colocarFichasAjedrez() {
-        colocarreyes();
-        crearTorres();
-        crearCaballos();
-        crearPeones();
-        crearelefantes();
-        colocarReinas();
+//        colocarreyes();
+//        crearTorres();
+//        crearCaballos();
+//        crearPeones();
+//        crearelefantes();
+//        colocarReinas();
+        damasDlancas();
+        damasDlancas1();
 
     }
 
-    public static void damasDlancas() {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
+    static boolean nob = true;
 
+    public static void damasDlancas() {
+        for (int i = 0; i < 8; i++) {
+
+            if (nob) {
+                Piezas damablanca = new Dama(true);
+                Piezas damanegra = new Dama(false);
+                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                Tabla.misCasillas[damanegra.posiciony(6)][damanegra.posicionx(i)].setCont(damanegra);
+                Tabla.misCasillas[damanegra.posiciony(6)][damanegra.posicionx(i)].setChar(damanegra.forma);
+
+                nob = false;
+
+            } else {
+                nob = true;
             }
         }
     }
+      public static void damasDlancas1() {
+          
+        for (int i = 0; i < 8; i++) {
+
+            if (!nob) {
+                Piezas damablanca = new Dama(true);
+                Piezas damanegra = new Dama(false);
+                Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setCont(damanegra);
+                Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
+                Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setCont(damanegra);
+                Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setChar(damanegra.forma);
+                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setChar(damablanca.forma);
+
+                nob = true;
+
+            } else {
+                nob = false;
+            }
+        }
+    }
+}
 //
 //    public static void posepeonesb(){
 //        
@@ -131,4 +170,4 @@ public class PosicionInicial {
 ////        t.tab (peon1.posicionx(1), peon1.posiciony(1),peon1);
 //        
 //    }
-}
+

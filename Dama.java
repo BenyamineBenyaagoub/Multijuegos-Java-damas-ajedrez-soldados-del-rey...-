@@ -16,7 +16,7 @@ public class Dama extends Piezas{
         if (colorcito) {
             super.setforma('*');
         } else {
-            super.setforma('*');
+            super.setforma('#');
         }
 
     }
