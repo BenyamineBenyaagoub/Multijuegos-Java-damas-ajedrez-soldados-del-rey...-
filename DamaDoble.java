@@ -16,7 +16,7 @@ public DamaDoble (boolean colorcito) {
         if (colorcito) {
             super.setforma('*');
         } else {
-            super.setforma('*');
+            super.setforma('⛁');
         }
 
     }

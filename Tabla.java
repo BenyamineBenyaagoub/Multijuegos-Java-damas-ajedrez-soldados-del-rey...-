@@ -125,7 +125,7 @@ public class Tabla {
                 misCasillas[a][b] = null;
                 misCasillas[c][d] = pro[a][b];
                 
-                //Turnos.cambiarTurno();
+                Turnos.cambiarTurno();
                 
             } else {
                 System.out.println("*************************************");

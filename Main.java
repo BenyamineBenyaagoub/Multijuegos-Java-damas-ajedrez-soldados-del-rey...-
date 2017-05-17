@@ -41,9 +41,9 @@ public class Main {
             t.mover(fila, columna);
             t.t();
             t.getT();
-            if (Victoria.victoriaAjedrez()) {
-               loop = false; 
-            }
+//            if (Victoria.victoriaAjedrez()) {
+//               loop = false; 
+//            }
         }
 
     }
