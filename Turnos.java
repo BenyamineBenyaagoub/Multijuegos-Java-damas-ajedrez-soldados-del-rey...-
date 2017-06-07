@@ -15,13 +15,15 @@ public class Turnos {
     static int turno = 2;
  public static void cambiarTurno(){
 
-     System.out.println("cambio de turno!!!!!!!");
+    
      
      if (turno == 2){
          turno = 1;
+         System.out.println("Turno del jugador 2" );
          elTurno = true;
      }else{
-         turno = 1;
+         turno = 2;
+         System.out.println("Turno del jugador 2");
          elTurno= false;
      }
      

@@ -18,8 +18,8 @@ public class Tabla {
     //char tabla [][]= new char[mida][mida];
     static Casilla[][] misCasillas = new Casilla[mida][mida];
     Casilla[][] pro = new Casilla[mida][mida];
-    
-    public Tabla(){
+
+    public Tabla() {
         this.t();
     }
 
@@ -103,43 +103,45 @@ public class Tabla {
 //       
 //
 //        }
-
 //        t.tab (peon1.posicionx(1), peon1.posiciony(1),peon1);
 //    }
     int a;
     int b;
 
-    public void pmover(int a, int b) {
+    public void piezaAMover(int a, int b) {
         this.a = a;
         this.b = b;
-        
+
     }
 
-    public void mover(int c, int d) {
-        if (misCasillas[a][b].cont.getcolor() == Turnos.elTurno ) {
-          if(misCasillas[a][b].cont.mov( a, b,c, d)) { 
-            if (misCasillas[c][d].noTienePieza() || misCasillas[c][d].cont.getcolor()==true) {
-             
-                pro[a][b] = misCasillas[a][b];
-                misCasillas[a][b].cont.movimientos++;
-                misCasillas[a][b] = null;
-                misCasillas[c][d] = pro[a][b];
-                
-                Turnos.cambiarTurno();
-                
+    public void mover(int a, int b,int c, int d) {
+        if (misCasillas[a][b].cont.getcolor() == Turnos.elTurno) {
+            if (misCasillas[a][b].cont.mov(a, b, c, d)) {
+                if (misCasillas[c][d].noTienePieza() || misCasillas[c][d].cont.getcolor() == true) {
+
+                    pro[a][b] = misCasillas[a][b];
+                    misCasillas[a][b].cont.movimientos++;
+                    misCasillas[a][b] = null;
+                    misCasillas[c][d] = pro[a][b];
+                    if (Dama.eeepa) {
+                         Dama.segundoSaltoBlancas(c, d); 
+                    }
+                  
+                    Turnos.cambiarTurno();
+
+                } else {
+
+                    System.out.println("**********no se puede mover ahi**********");
+
+                }
             } else {
-                System.out.println("*************************************");
-                System.out.println("**********no se puede mover ahi**********");
-       
-            } }
-          else{
-              System.out.println("fuera");
-          }
+                System.out.println("fuera");
+            }
 
-        }else {
+        } else {
             System.out.println(" intenta mover otro color :3");
-        
-    }
+
+        }
     }
 //    public void mover(int c, int d) {
 //      

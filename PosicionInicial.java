@@ -125,10 +125,9 @@ public class PosicionInicial {
             if (nob) {
                 Piezas damablanca = new Dama(true);
                 Piezas damanegra = new Dama(false);
-                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setCont(damablanca);
-                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setChar(damablanca.forma);
-                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setCont(damablanca);
-                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                
                 Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setCont(damanegra);
                 Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
                 Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setCont(damanegra);
@@ -151,8 +150,10 @@ public class PosicionInicial {
                 Tabla.misCasillas[damanegra.posiciony(6)][damanegra.posicionx(i)].setCont(damanegra);
                 Tabla.misCasillas[damanegra.posiciony(6)][damanegra.posicionx(i)].setChar(damanegra.forma);
                 
-                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setCont(damablanca);
-                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setChar(damablanca.forma);
 
                 nob = true;
 

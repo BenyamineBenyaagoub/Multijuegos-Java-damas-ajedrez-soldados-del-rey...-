@@ -12,35 +12,39 @@ package LeAjedrez;
 import java.util.Scanner;
 
 public class Main {
-
-    public static void main(String[] args) {
+   
+    public static Tabla getTabla(){
         Tabla t = new Tabla();
+        return t;
+    }
+    public static void main(String[] args) {
+        
         PosicionInicial pose = new PosicionInicial();
         Casilla ca = new Casilla(1, 1, true, null);
         Peon p;
         Scanner sc = new Scanner(System.in);
         System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ 0 ♞ ♟");
-        t.t();
+        getTabla().t();
         PosicionInicial.colocarFichasAjedrez();
-        t.getT();
+        getTabla().getT();
         boolean loop = true;
         while (loop) {
             Promociones.ascention();
             System.out.println("fila");
-            int fila = sc.nextInt();
+            int fila1 = sc.nextInt();
             
             System.out.println("columna");
-            int columna = sc.nextInt();
+            int columna1 = sc.nextInt();
 
-            t.pmover(fila, columna);
+        
 
             System.out.println("fila");
-            fila = sc.nextInt();
+            int fila = sc.nextInt();
             System.out.println("columna");
-            columna = sc.nextInt();
-            t.mover(fila, columna);
-            t.t();
-            t.getT();
+            int columna = sc.nextInt();
+            getTabla().mover(fila1, columna1,fila, columna);
+            getTabla().t();
+            getTabla().getT();
 //            if (Victoria.victoriaAjedrez()) {
 //               loop = false; 
 //            }
