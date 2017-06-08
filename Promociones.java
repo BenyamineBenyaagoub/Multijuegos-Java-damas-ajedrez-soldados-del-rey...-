@@ -5,11 +5,13 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Javier
  */
-public class Promociones {
+public class Promociones implements Serializable {
     
     public static void ascention(){
         ascentionPeon();

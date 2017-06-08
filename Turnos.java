@@ -5,12 +5,14 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ibra
  */
 
-public class Turnos {
+public class Turnos  implements Serializable{
     static boolean elTurno;
     static int turno = 2;
  public static void cambiarTurno(){

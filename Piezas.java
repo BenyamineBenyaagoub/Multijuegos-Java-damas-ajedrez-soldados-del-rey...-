@@ -5,11 +5,13 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Javier
  */
-public class Piezas {
+public class Piezas implements Serializable{
 
     private boolean colorblanco = false;
     public int y;

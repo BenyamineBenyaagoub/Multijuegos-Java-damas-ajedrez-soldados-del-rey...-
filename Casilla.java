@@ -5,11 +5,13 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Javier
  */
-public class Casilla {
+public class Casilla  implements Serializable{
 
     Piezas cont;
     private boolean color;

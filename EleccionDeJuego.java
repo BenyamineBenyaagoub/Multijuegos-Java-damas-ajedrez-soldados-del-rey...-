@@ -5,13 +5,14 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author Javier
  */
-public class EleccionDeJuego {
+public class EleccionDeJuego implements Serializable{
 
     public static int a;
 

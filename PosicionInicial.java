@@ -5,13 +5,14 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author Javier
  */
-public class PosicionInicial {
+public class PosicionInicial implements Serializable {
 
     static Tabla t;
     Piezas p = new Piezas();

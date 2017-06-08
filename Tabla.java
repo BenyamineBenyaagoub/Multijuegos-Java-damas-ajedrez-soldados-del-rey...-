@@ -5,25 +5,39 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author Javier
  */
-public class Tabla {
+
+public class Tabla implements Serializable {
 
     private static final int mida = 8;
-    //poner movimientos en el objeto de la pieza
-    //char tabla [][]= new char[mida][mida];
+    
     static Casilla[][] misCasillas = new Casilla[mida][mida];
     Casilla[][] pro = new Casilla[mida][mida];
-
-    public Tabla() {
-        this.t();
+    public  void guarda(){
+        Guardar.guardar(misCasillas);
     }
+    
+    public void carga(){
+        if (Guardar.exi()) {
+             misCasillas = Guardar.cargar();
+        }else{
+            t();
+        }
+       
+    }
+    
 
-    void t() {
+//    public Tabla() {
+//        this.t();
+//    }
+
+    void t(){
         int pre = 0;
         for (int y = 0; y < mida; y++) {
             if (pre == 0) {
@@ -68,43 +82,6 @@ public class Tabla {
         }
     }
 
-//    public void tab(int a, int b, Piezas cont) {
-//        
-//        misCasillas[a][b].setCont(cont);
-//        misCasillas[a][b].setChar(cont.getforma);
-//        
-//    }
-//    public void pose(){
-//        po.posepeonesb();
-//    }
-//       public  void posepeonesb(){
-//        
-//        Piezas peon1 = new Peon(true);
-//        
-//        misCasillas[1][1].setCont(peon1);
-//        misCasillas[1][1].setChar(peon1.getforma);
-//        Piezas peon2 = new Peon(true);
-////        t.tab (peon1.posicionx(1), peon1.posiciony(1),peon1);
-//        
-//    }
-//    public void crearPeones() {
-//
-//        Piezas peon[] = new Peon[8];
-//        Piezas peonN[] = new Peon[8];
-//        for (int i = 0; i < 8; i++) {
-//
-//            peon[i] = new Peon(false);
-//            misCasillas[peon[i].posiciony(1)][peon[i].posicionx(i)].setCont(peon[i]);
-//            misCasillas[peon[i].posiciony(1)][peon[i].posicionx(i)].setChar(peon[i].forma);
-//
-//            peonN[i] = new Peon(true);
-//            misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setCont(peonN[i]);
-//            misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setChar(peonN[i].forma);
-//       
-//
-//        }
-//        t.tab (peon1.posicionx(1), peon1.posiciony(1),peon1);
-//    }
     int a;
     int b;
 

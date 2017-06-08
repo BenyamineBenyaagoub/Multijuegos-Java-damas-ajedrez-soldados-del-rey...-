@@ -5,11 +5,13 @@
  */
 package LeAjedrez;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Javier
  */
-public class Victoria {
+public class Victoria  implements Serializable{
     
 
     public static boolean victoriaAjedrezNegras() {

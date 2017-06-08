@@ -9,7 +9,7 @@ package LeAjedrez;
  *
  * @author Javier
  */
-public class Peon extends Piezas {
+public class Peon extends Piezas  {
 
     boolean colorcito;
 
