@@ -67,5 +67,6 @@ public class Reina extends Piezas {
         }
         return false;
      }
+     //FALTA OBSTACULO!
      }
 

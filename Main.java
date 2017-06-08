@@ -45,9 +45,9 @@ public class Main {
             getTabla().mover(fila1, columna1,fila, columna);
             getTabla().t();
             getTabla().getT();
-//            if (Victoria.victoriaAjedrez()) {
-//               loop = false; 
-//            }
+            if (EleccionDeJuego.eleccionVictoria()) {
+               loop = false; 
+            }
         }
 
     }

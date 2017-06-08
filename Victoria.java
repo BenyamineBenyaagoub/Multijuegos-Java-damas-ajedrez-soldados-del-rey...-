@@ -10,7 +10,7 @@ package LeAjedrez;
  * @author Javier
  */
 public class Victoria {
-    // al tener mas juegos pondre un meetodo que ejecute el metodo victoria del juego qe seleccione el usuario.
+    
 
     public static boolean victoriaAjedrezNegras() {
         for (int i = 0; i < 8; i++) {
@@ -22,10 +22,11 @@ public class Victoria {
 
             }
         }
-      
+
         return true;
     }
-     public static boolean victoriaAjedrezBlancas() {
+
+    public static boolean victoriaAjedrezBlancas() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (Tabla.misCasillas[i][j].getchar() == '♛') {
@@ -33,20 +34,59 @@ public class Victoria {
                     return false;
                 }
 
-            } 
+            }
         }
-      
+
         return true;
     }
-     public static boolean victoriaAjedrez(){
-         if (victoriaAjedrezBlancas()) {
-             System.out.println("ganan las blancas");
-             return true;
-         }
-           if (victoriaAjedrezNegras()) {
-             System.out.println("ganan las Negras");
-             return true;
-         }
-         return false;
-     }
+
+    public static boolean victoriaAjedrez() {
+        if (victoriaAjedrezBlancas()) {
+            System.out.println("ganan las blancas");
+            return true;
+        }
+        if (victoriaAjedrezNegras()) {
+            System.out.println("ganan las Negras");
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean victoriaDamasBlancas() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (Tabla.misCasillas[i][j].getchar() == '♛' || Tabla.misCasillas[i][j].getchar() == '◙') {
+
+                    return false;
+                }
+
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean victoriaDamasNegras() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (Tabla.misCasillas[i][j].getchar() == '♕' || Tabla.misCasillas[i][j].getchar() == '◎') {
+
+                    return false;
+                }
+
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean victoriaDamas() {
+        if (victoriaDamasNegras()) {
+            return true;
+        }
+        if (victoriaDamasBlancas()) {
+            return true;
+        }
+        return false;
+    }
 }

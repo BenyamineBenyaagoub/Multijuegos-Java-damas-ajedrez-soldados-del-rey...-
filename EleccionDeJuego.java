@@ -12,27 +12,50 @@ import java.util.Scanner;
  * @author Javier
  */
 public class EleccionDeJuego {
-    
-   
-          public static int a;
-       
-       
-        
-    public static void elige(){
+
+    public static int a;
+
+    public static void elige() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ajedrez 1");
         System.out.println("Damas 2");
         System.out.println("Soldados Del Rey 3");
-      
+
         a = sc.nextInt();
-        switch(a){
+        eleccionVictoria();
+        switch (a) {
             case 1:
                 PosicionInicial.colocarFichasAjedrez();
-                
+
                 break;
             case 2:
                 PosicionInicial.colocarFichasDamas();
                 break;
         }
+    }
+
+    public static boolean eleccionVictoria() {
+        switch (a) {
+            case 1:
+                if (Victoria.victoriaAjedrez()) {
+                  return true;  
+                }
+
+
+                break;
+            case 2:
+                if (Victoria.victoriaDamas()) {
+                  return true;  
+                }
+                
+                break;
+            case 3:
+                if (Victoria.victoriaAjedrez()) {
+                  return true;  
+                }
+
+                break;
+        }
+        return false;
     }
 }

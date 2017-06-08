@@ -15,7 +15,7 @@ public class Casilla {
     private boolean color;
     private final char blanco = '░';
     private final char negro = '▓';
-   
+
     private int y;
     private int x;
     private char elcolor;
@@ -31,23 +31,19 @@ public class Casilla {
             elcolor = negro;
         }
     }
-    
-   
-    
-    public Piezas getPieza(){
+
+    public Piezas getPieza() {
         return cont;
     }
-    public boolean noTienePieza(){
-        if(cont == null){
+
+    public boolean noTienePieza() {
+        if (cont == null) {
             return true;
         }
-            return false;
-        
+        return false;
+
     }
-    
- 
-    
-    
+
     public char getchar() {
         return elcolor;
     }
@@ -60,9 +56,9 @@ public class Casilla {
     public void setCont(Piezas cont) {
         this.cont = cont;
     }
-    
-    public Piezas getCont(){
-       return this.cont; 
+
+    public Piezas getCont() {
+        return this.cont;
     }
 
 }
