@@ -81,6 +81,7 @@ public class Dama extends Piezas {
             }
 
         }
+        // esto esta mal ha de ser al reves
         if (Tabla.misCasillas[a][b].cont.forma == '◙') {
             if (a1 - a == -2 && b1 - b == 2) {
                 if (Tabla.misCasillas[a + 1][b + 1].cont != null) {
@@ -130,15 +131,31 @@ public class Dama extends Piezas {
         return false;
     }
 
-    public static boolean segundoSaltoNegras(int a, int b) {
+   public static boolean segundoSaltoNegras(int a, int b) {
+       
+         
+        if (Tabla.misCasillas[a - 2][b + 2].cont == null || Tabla.misCasillas[a - 1][b + 1].cont.getcolor() == true) {
+            segunndomov(a, b);
+            return true;
 
-        if (Tabla.misCasillas[a - 2][b - 2].cont != null || Tabla.misCasillas[a - 2][b + 2].cont != null) {
+        }
+          if (b <= 6 || a <= 6) {
+            return false;
+        }
+         if (Tabla.misCasillas[a - 2][b - 2].cont == null || Tabla.misCasillas[a - 1][b - 1].cont.getcolor() == true) {
             segunndomov(a, b);
             return true;
 
         }
 
         return false;
+    }
+    public static void boNDama(int a,int b){
+        if(Tabla.misCasillas[a][b].cont.getcolor()){
+            segundoSaltoBlancas(a,b);
+        }else{
+            segundoSaltoNegras(a,b);
+        }
     }
 
     public static void segunndomov(int a, int b) {
@@ -166,6 +183,6 @@ public class Dama extends Piezas {
             Tabla.misCasillas[fila][columna].setCont(damaNegra);
             Tabla.misCasillas[fila][columna].setChar('◙');
         }
-        segundoSaltoBlancas(fila, columna);
+        //boNDama(fila, columna);
     }
 }

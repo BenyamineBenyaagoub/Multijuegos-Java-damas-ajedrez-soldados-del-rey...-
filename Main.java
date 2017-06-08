@@ -25,7 +25,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ 0 ♞ ♟");
         getTabla().t();
-        PosicionInicial.colocarFichasAjedrez();
+        EleccionDeJuego.elige();
         getTabla().getT();
         boolean loop = true;
         while (loop) {

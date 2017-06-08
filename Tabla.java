@@ -124,7 +124,9 @@ public class Tabla {
                     misCasillas[a][b] = null;
                     misCasillas[c][d] = pro[a][b];
                     if (Dama.eeepa) {
-                         Dama.segundoSaltoBlancas(c, d); 
+                         Dama.boNDama(c, d); 
+                    }else if(DamaDoble.otra){
+                        DamaDoble.bon(c,d);
                     }
                   
                     Turnos.cambiarTurno();

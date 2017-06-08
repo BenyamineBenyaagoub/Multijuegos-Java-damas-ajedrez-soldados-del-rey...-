@@ -106,17 +106,21 @@ public class PosicionInicial {
     }
 
     public static void colocarFichasAjedrez() {
-//        colocarreyes();
-//        crearTorres();
-//        crearCaballos();
-//        crearPeones();
-//        crearelefantes();
-//        colocarReinas();
+        colocarreyes();
+        crearTorres();
+        crearCaballos();
+        crearPeones();
+        crearelefantes();
+        colocarReinas();
+      
+
+    }
+    
+       public static void colocarFichasDamas() {
         damasDlancas();
         damasDlancas1();
 
     }
-
     static boolean nob = true;
 
     public static void damasDlancas() {
