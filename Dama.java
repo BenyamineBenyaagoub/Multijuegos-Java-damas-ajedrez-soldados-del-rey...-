@@ -13,6 +13,9 @@ import java.util.Scanner;
  */
 public class Dama extends Piezas {
 
+    static int fila;
+    static int columna;
+
     public Dama(boolean colorcito) {
 
         super.setColor(colorcito);
@@ -48,28 +51,36 @@ public class Dama extends Piezas {
 
         return false;
     }
-    public static boolean eeepa = false;
+    public static boolean SegundoSalto = false;
 
     // Dividir este metodo en 3
     public static boolean comer(int a, int b, int a1, int b1) {
+
+        if (comerBlancas(a, b, a1, b1) || comerNegras(a, b, a1, b1)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean comerBlancas(int a, int b, int a1, int b1) {
         if (Tabla.misCasillas[a][b].cont.forma == '◎') {
             if (a >= 6) {
-                eeepa = false;
+                SegundoSalto = false;
                 System.out.println("es lo tercero");
                 return false;
             }
             if (a1 - a == 2 && b1 - b == -2) {
                 if (b <= 1) {
-                    eeepa = false;
-                    System.out.println("es lo primero");
+                    SegundoSalto = false;
                     return false;
 
                 }
                 if (Tabla.misCasillas[a + 1][b - 1].cont != null) {
-                    if (Tabla.misCasillas[a + 1][b - 1].cont.forma == '◙') {
+                    if (Tabla.misCasillas[a + 1][b - 1].cont.forma == '◙' || Tabla.misCasillas[a + 1][b + 1].cont.forma == '⛊') {
                         Tabla.misCasillas[a + 1][b - 1].setCont(null);
                         Tabla.misCasillas[a + 1][b - 1].setChar('▓');
-                        eeepa = true;
+                        SegundoSalto = true;
                         return true;
                     }
                 }
@@ -77,16 +88,15 @@ public class Dama extends Piezas {
 
             if (a1 - a == 2 && b1 - b == 2) {
                 if (b >= 6) {
-                    eeepa = false;
-                    System.out.println("es lo segundo");
+                    SegundoSalto = false;
                     return false;
                 }
                 if (Tabla.misCasillas[a + 1][b + 1].cont != null) {
-                    if (Tabla.misCasillas[a + 1][b + 1].cont.forma == '◙') {
+                    if (Tabla.misCasillas[a + 1][b + 1].cont.forma == '◙' || Tabla.misCasillas[a + 1][b + 1].cont.forma == '⛊') {
                         Tabla.misCasillas[a + 1][b + 1].setCont(null);
                         Tabla.misCasillas[a + 1][b + 1].setChar('▓');
 
-                        eeepa = true;
+                        SegundoSalto = true;
                         return true;
 
                     }
@@ -94,82 +104,81 @@ public class Dama extends Piezas {
             }
 
         }
+        return false;
+    }
 
+    public static boolean comerNegras(int a, int b, int a1, int b1) {
         if (Tabla.misCasillas[a][b].cont.forma == '◙') {
             if (a <= 1) {
-                eeepa = false;
+                SegundoSalto = false;
                 return false;
             }
             if (a1 - a == -2 && b1 - b == 2) {
                 if (b >= 6) {
-                    eeepa = false;
+                    SegundoSalto = false;
                     return false;
                 }
                 if (Tabla.misCasillas[a - 1][b + 1].cont != null) {
-                    if (Tabla.misCasillas[a - 1][b + 1].cont.forma == '◎') {
+                    if (Tabla.misCasillas[a - 1][b + 1].cont.forma == '◎' || Tabla.misCasillas[a - 1][b + 1].cont.forma == '⛉') {
                         Tabla.misCasillas[a - 1][b + 1].setCont(null);
                         Tabla.misCasillas[a - 1][b + 1].setChar('▓');
-                        eeepa = true;
+                        SegundoSalto = true;
                         return true;
                     }
                 }
             }
             if (a1 - a == -2 && b1 - b == -2) {
-                if (b <= 1) {
-                    eeepa = false;
+                if (b <= 1 || a <= 1) {
+                    SegundoSalto = false;
                     return false;
                 }
                 if (Tabla.misCasillas[a - 1][b - 1].cont != null) {
-                    if (Tabla.misCasillas[a - 1][b - 1].cont.forma == '◎') {
+                    if (Tabla.misCasillas[a - 1][b - 1].cont.forma == '◎' || Tabla.misCasillas[a - 1][b + 1].cont.forma == '⛉') {
                         Tabla.misCasillas[a - 1][b - 1].setCont(null);
                         Tabla.misCasillas[a - 1][b - 1].setChar('▓');
-                        eeepa = true;
+                        SegundoSalto = true;
                         return true;
                     }
                 }
             }
         }
-        eeepa = false;
+        SegundoSalto = false;
         return false;
 
     }
 
-    static int fila;
-    static int columna;
-
     public static boolean segundoSaltoBlancas(int a, int b) {
-
+        if (b <= 1) {
+            return false;
+        }
         if (Tabla.misCasillas[a + 2][b - 2].cont == null && Tabla.misCasillas[a + 1][b - 1].cont.getcolor() == false) {
             segunndomov(a, b);
             return true;
-
-        }
-        if (b <= 7 || a <= 7) {
-            return false;
-        }
-
-        if (Tabla.misCasillas[a + 2][b + 2].cont == null && Tabla.misCasillas[a + 1][b + 1].cont.getcolor() == false) {
-            segunndomov(a, b);
-            return true;
-        }
-        System.out.println("nada");
-        return false;
-    }
-
-    public static boolean segundoSaltoNegras(int a, int b) {
-
-        if (Tabla.misCasillas[a - 2][b + 2].cont == null || Tabla.misCasillas[a - 1][b + 1].cont.getcolor() == true) {
-            segunndomov(a, b);
-            return true;
-
         }
         if (b <= 6 || a <= 6) {
             return false;
         }
-        if (Tabla.misCasillas[a - 2][b - 2].cont == null || Tabla.misCasillas[a - 1][b - 1].cont.getcolor() == true) {
+        if (Tabla.misCasillas[a + 2][b + 2].cont == null && Tabla.misCasillas[a + 1][b + 1].cont.getcolor() == false) {
             segunndomov(a, b);
             return true;
+        }
+        
+        return false;
+    }
 
+    public static boolean segundoSaltoNegras(int a, int b) {
+      
+        if (b <= 2||b >= 6 || a <= 1) {
+            return false;
+        }
+        if (Tabla.misCasillas[a - 2][b + 2].cont == null && Tabla.misCasillas[a - 1][b + 1].cont.getcolor() == true) {
+            segunndomov(a, b);
+            return true;
+        }
+        
+        if (Tabla.misCasillas[a - 2][b - 2].cont == null && Tabla.misCasillas[a - 1][b - 1].cont.getcolor() == true) {
+            segunndomov(a, b);
+            return true;
         }
 
         return false;

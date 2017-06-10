@@ -6,14 +6,15 @@
 package LeAjedrez;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 /**
  *
  * @author Javier
  */
 public class Promociones implements Serializable {
-    
-    public static void ascention(){
+
+    public static void ascention() {
         ascentionPeon();
         ascentionDama();
     }
@@ -22,11 +23,11 @@ public class Promociones implements Serializable {
 
         for (int i = 0; i < 6; i++) {
             if (Tabla.misCasillas[7][i].getchar() == '♟') {
-                cambio();
-                System.out.println("hola mundo");
+                cambio(false, 7, i);
+                
             }
             if (Tabla.misCasillas[0][i].getchar() == '♙') {
-                cambio();
+                cambio(true, 0, i);
 
             }
         }
@@ -50,11 +51,40 @@ public class Promociones implements Serializable {
 
     }
 
-    public static void cambio() {
-        System.out.println("elige a que quieres promocionar");
-        System.out.println("JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA aun no  esta emplementado");
-        System.out.println("saldra en nuestro dlc por solo  49€");
-        
+    public static void cambio(boolean e, int fila, int columna) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("a que pieza quieres cambiar?");
+        System.out.println("1: Alfil");
+        System.out.println("2: Dama");
+        System.out.println("3: Torre");
+        System.out.println("4: Caballo");
+        int eleccion = sc.nextInt();
+        switch (eleccion) {
+            case 1:
+                Piezas alfil = new Alfil(e);
+
+                Tabla.misCasillas[alfil.posiciony(fila)][alfil.posicionx(columna)].setCont(alfil);
+                Tabla.misCasillas[alfil.posiciony(fila)][alfil.posicionx(columna)].setChar(alfil.forma);
+                break;
+            case 2:
+                Piezas dama = new Dama(e);
+                Tabla.misCasillas[dama.posiciony(fila)][dama.posicionx(columna)].setCont(dama);
+                Tabla.misCasillas[dama.posiciony(fila)][dama.posicionx(columna)].setChar(dama.forma);
+                break;
+            case 3:
+                Piezas torre = new Torre(e);
+                Tabla.misCasillas[torre.posiciony(fila)][torre.posicionx(columna)].setCont(torre);
+                Tabla.misCasillas[torre.posiciony(fila)][torre.posicionx(columna)].setChar(torre.forma);
+                break;
+            case 4:
+                Piezas caballo = new Caballo(e);
+
+                Tabla.misCasillas[caballo.posiciony(fila)][caballo.posicionx(columna)].setCont(caballo);
+                Tabla.misCasillas[caballo.posiciony(fila)][caballo.posicionx(columna)].setChar(caballo.forma);
+
+                break;
+        }
+
     }
 
 }

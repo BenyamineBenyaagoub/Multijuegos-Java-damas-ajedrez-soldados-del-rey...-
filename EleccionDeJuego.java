@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Javier
  */
-public class EleccionDeJuego implements Serializable{
+public class EleccionDeJuego implements Serializable {
 
     public static int a;
 
@@ -32,6 +32,9 @@ public class EleccionDeJuego implements Serializable{
             case 2:
                 PosicionInicial.colocarFichasDamas();
                 break;
+            case 3:
+                PosicionInicial.soldadosRey();
+                break;
         }
     }
 
@@ -39,20 +42,19 @@ public class EleccionDeJuego implements Serializable{
         switch (a) {
             case 1:
                 if (Victoria.victoriaAjedrez()) {
-                  return true;  
+                    return true;
                 }
-
 
                 break;
             case 2:
                 if (Victoria.victoriaDamas()) {
-                  return true;  
+                    return true;
                 }
-                
+
                 break;
             case 3:
                 if (Victoria.victoriaAjedrez()) {
-                  return true;  
+                    return true;
                 }
 
                 break;

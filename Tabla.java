@@ -100,7 +100,7 @@ public class Tabla implements Serializable {
                     misCasillas[a][b].cont.movimientos++;
                     misCasillas[a][b] = null;
                     misCasillas[c][d] = pro[a][b];
-                    if (Dama.eeepa) {
+                    if (Dama.SegundoSalto) {
                          Dama.boNDama(c, d); 
                     }else if(DamaDoble.otra){
                         DamaDoble.bon(c,d);

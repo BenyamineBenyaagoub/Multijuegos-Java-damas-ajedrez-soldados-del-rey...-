@@ -23,7 +23,7 @@ public class Main {
         Casilla ca = new Casilla(1, 1, true, null);
         Peon p;
         Scanner sc = new Scanner(System.in);
-        System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ 0 ♞ ♟");
+        System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟");
         getTabla().carga();
         //
         if (!(Guardar.exi())) {
