@@ -31,6 +31,7 @@ public class Main {
         }
  
         boolean loop = true;
+
         getTabla().getT();
         while (loop) {
             

@@ -182,12 +182,15 @@ public class PosicionInicial implements Serializable {
             Tabla.misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setChar(peonN[i].forma);
             Tabla.misCasillas[peonN[i].posiciony(7)][peonN[i].posicionx(i)].setCont(peonN[i]);
             Tabla.misCasillas[peonN[i].posiciony(7)][peonN[i].posicionx(i)].setChar(peonN[i].forma);
+      
 
         }
 
     }
     public static  void soldadosRey(){
         soldadosDelRey();
+        colocarreyes();
+        
     }
 }
 //

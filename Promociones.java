@@ -67,9 +67,9 @@ public class Promociones implements Serializable {
                 Tabla.misCasillas[alfil.posiciony(fila)][alfil.posicionx(columna)].setChar(alfil.forma);
                 break;
             case 2:
-                Piezas dama = new Dama(e);
-                Tabla.misCasillas[dama.posiciony(fila)][dama.posicionx(columna)].setCont(dama);
-                Tabla.misCasillas[dama.posiciony(fila)][dama.posicionx(columna)].setChar(dama.forma);
+                Piezas reina = new Reina(e);
+                Tabla.misCasillas[reina.posiciony(fila)][reina.posicionx(columna)].setCont(reina);
+                Tabla.misCasillas[reina.posiciony(fila)][reina.posicionx(columna)].setChar(reina.forma);
                 break;
             case 3:
                 Piezas torre = new Torre(e);
