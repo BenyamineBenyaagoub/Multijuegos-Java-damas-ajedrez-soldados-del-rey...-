@@ -11,8 +11,7 @@ import java.io.Serializable;
  *
  * @author Javier
  */
-public class Victoria  implements Serializable{
-    
+public class Victoria implements Serializable {
 
     public static boolean victoriaAjedrezNegras() {
         for (int i = 0; i < 8; i++) {
@@ -57,7 +56,7 @@ public class Victoria  implements Serializable{
     public static boolean victoriaDamasBlancas() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (Tabla.misCasillas[i][j].getchar() == '♛' || Tabla.misCasillas[i][j].getchar() == '◙') {
+                if (Tabla.misCasillas[i][j].getchar() == '⛊' || Tabla.misCasillas[i][j].getchar() == '◙') {
 
                     return false;
                 }
@@ -71,7 +70,7 @@ public class Victoria  implements Serializable{
     public static boolean victoriaDamasNegras() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (Tabla.misCasillas[i][j].getchar() == '♕' || Tabla.misCasillas[i][j].getchar() == '◎') {
+                if (Tabla.misCasillas[i][j].getchar() == '⛉' || Tabla.misCasillas[i][j].getchar() == '◎') {
 
                     return false;
                 }
@@ -91,4 +90,48 @@ public class Victoria  implements Serializable{
         }
         return false;
     }
+
+    public static boolean VictoriaChinaBlancas() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (Tabla.misCasillas[i][j].getchar() == '▼') {
+                    if (i < 5) {
+                        return false;
+                    }
+                }
+                
+            }
+        }
+
+        return true;
+    }
+    
+    
+    public static boolean VictoriaChinaNegras() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+               if (Tabla.misCasillas[i][j].getchar() == '▲') {
+                    if (i > 2) {
+                        return false;
+                    }
+                } 
+                
+            }
+        }
+
+        return true;
+    }
+    
+    public static boolean VictoriaChina(){
+        if (VictoriaChinaNegras()){
+            System.out.println("gana jugador 1");
+            return true;
+        }
+        if (VictoriaChinaBlancas()) {
+            System.out.println("gana jugador 2");
+            return true;
+        }
+        return false;
+    }
+    
 }

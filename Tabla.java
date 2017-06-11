@@ -90,6 +90,15 @@ public class Tabla implements Serializable {
         this.b = b;
 
     }
+    
+     public static boolean dentro(int... nums) {
+        for (int num : nums) {
+            if (num > 7 || num < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void mover(int a, int b,int c, int d) {
         if (misCasillas[a][b].cont.getcolor() == Turnos.elTurno) {

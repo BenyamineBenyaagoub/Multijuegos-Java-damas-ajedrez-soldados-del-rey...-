@@ -132,7 +132,7 @@ public class PosicionInicial implements Serializable {
                 Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setCont(damablanca);
                 Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setChar(damablanca.forma);
                 Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setCont(damanegra);
-                Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
+              Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
                 Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setCont(damanegra);
                 Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setChar(damanegra.forma);
 
@@ -142,6 +142,7 @@ public class PosicionInicial implements Serializable {
                 nob = true;
             }
         }
+
     }
 
     public static void damasDlancas1() {
@@ -182,16 +183,66 @@ public class PosicionInicial implements Serializable {
             Tabla.misCasillas[peonN[i].posiciony(6)][peonN[i].posicionx(i)].setChar(peonN[i].forma);
             Tabla.misCasillas[peonN[i].posiciony(7)][peonN[i].posicionx(i)].setCont(peonN[i]);
             Tabla.misCasillas[peonN[i].posiciony(7)][peonN[i].posicionx(i)].setChar(peonN[i].forma);
-      
 
         }
 
     }
-    public static  void soldadosRey(){
+
+    public static void soldadosRey() {
         soldadosDelRey();
         colocarreyes();
-        
+
     }
+    
+    public static void damasChinas() {
+        for (int i = 0; i < 8; i++) {
+
+            if (nob) {
+                Piezas damablanca = new DamaChina(true);
+                Piezas damanegra = new DamaChina(false);
+                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setCont(damanegra);
+              Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
+                Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setCont(damanegra);
+                Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setChar(damanegra.forma);
+
+                nob = false;
+
+            } else {
+                nob = true;
+            }
+        }
+
+    }
+
+    public static void damasChinas1() {
+
+        for (int i = 0; i < 8; i++) {
+
+            if (!nob) {
+                Piezas damablanca = new DamaChina(true);
+                Piezas damanegra = new DamaChina(false);
+                Tabla.misCasillas[damanegra.posiciony(6)][damanegra.posicionx(i)].setCont(damanegra);
+                Tabla.misCasillas[damanegra.posiciony(6)][damanegra.posicionx(i)].setChar(damanegra.forma);
+                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(0)][damablanca.posicionx(i)].setChar(damablanca.forma);
+                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setCont(damablanca);
+                Tabla.misCasillas[damablanca.posiciony(2)][damablanca.posicionx(i)].setChar(damablanca.forma);
+
+                nob = true;
+
+            } else {
+                nob = false;
+            }
+        }
+    }
+     public static void piezasChinas() {
+        damasChinas1();
+        damasChinas();
+
+    }
+    
 }
 //
 //    public static void posepeonesb(){

@@ -21,7 +21,9 @@ public class Reina extends Piezas {
 
     }
      public boolean mov(int a, int b, int a1, int b1) {
-    
+         if (estorbo(a,b,a1,b1)) {
+             return false;
+         }
           int movx[] = new int[8];
         int movy[] = new int[8];
         for (int i = 0; i < 8; i++) {
@@ -67,6 +69,12 @@ public class Reina extends Piezas {
         }
         return false;
      }
-     //FALTA OBSTACULO!
+     public static boolean estorbo(int a, int b, int a1, int b1) {
+         if (Alfil.estorboAlfil(a, b, a1, b1)||Torre.obstaculoTorre(a, b, a1, b1)) {
+            return true; 
+         }
+
+         return false;
+     }
      }
 

@@ -23,7 +23,7 @@ public class Alfil extends Piezas {
     }
 
     public boolean mov(int a, int b, int a1, int b1) {
-        if (estorbo(a, b, a1, b1)) {
+        if (estorboAlfil(a, b, a1, b1)) {
             System.out.println("algo raro");
             return false;
 
@@ -36,7 +36,7 @@ public class Alfil extends Piezas {
         return false;
     }
 
-    public static boolean estorbo(int a, int b, int a1, int b1) {
+    public static boolean estorboAlfil(int a, int b, int a1, int b1) {
         if (Math.abs(b - b1) == Math.abs(a - a1) && a < a1 && b < b1) {
             for (int i = 1; i < a1 - a; i++) {
                 if (Tabla.misCasillas[a + i][b + i].cont != null) {
@@ -54,20 +54,14 @@ public class Alfil extends Piezas {
 
         }
         if (b - b1 > a - a1) {
-            System.out.println("entra");
-            for (int i = -1; i > a1 - a; i--) {
-                for (int j = 1 ; j < b1 - b ; j++) {
-                    if (Tabla.misCasillas[a + i][b + j].cont != null) {
-                        
-                        System.out.println("aleluya");
+
+            for (int i = a1; i > a1 - a; i--) {
+                for (int j = b; j < b1 - b; j++) {
+                    if (Tabla.misCasillas[i][j].cont != null) {
                         return true;
-                        
                     }
-                    if (Tabla.misCasillas[j][ i].cont != null) {
-                        
-                        System.out.println("");
+                    if (Tabla.misCasillas[j][i].cont != null) {
                         return true;
-                        
                     }
 
                 }

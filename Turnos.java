@@ -25,7 +25,7 @@ public class Turnos  implements Serializable{
          elTurno = true;
      }else{
          turno = 2;
-         System.out.println("Turno del jugador 2");
+         System.out.println("Turno del jugador 1");
          elTurno= false;
      }
      

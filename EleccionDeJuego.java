@@ -18,9 +18,12 @@ public class EleccionDeJuego implements Serializable {
 
     public static void elige() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ajedrez 1");
-        System.out.println("Damas 2");
-        System.out.println("Soldados Del Rey 3");
+        System.out.println("¿A que quieres jugar?");
+        System.out.println("Ajedrez: 1");
+        System.out.println("Damas: 2");
+        System.out.println("Soldados Del Rey: 3");
+        System.out.println("Damas Chinas: 4");
+       
 
         a = sc.nextInt();
         eleccionVictoria();
@@ -35,6 +38,11 @@ public class EleccionDeJuego implements Serializable {
             case 3:
                 PosicionInicial.soldadosRey();
                 break;
+            case 4:
+                PosicionInicial.piezasChinas();
+                break;
+           
+               
         }
     }
 
@@ -56,7 +64,11 @@ public class EleccionDeJuego implements Serializable {
                 if (Victoria.victoriaAjedrez()) {
                     return true;
                 }
-
+                break;
+            case 4:
+                if (Victoria.VictoriaChina()) {
+                    return true;
+                }
                 break;
         }
         return false;

@@ -35,17 +35,17 @@ public class Promociones implements Serializable {
     }
 
     public static void ascentionDama() {
-        DamaDoble dBlanca = new DamaDoble(false);
-        DamaDoble dNegra = new DamaDoble(true);
+        DamaDoble dBlanca = new DamaDoble(true);
+        DamaDoble dNegra = new DamaDoble(false);
         for (int i = 0; i < 6; i++) {
             if (Tabla.misCasillas[0][i].getchar() == '◙') {
 
                 Tabla.misCasillas[0][i].setCont(dNegra);
-                Tabla.misCasillas[0][i].setChar('⛃');
+                Tabla.misCasillas[0][i].setChar('⛊');
             }
             if (Tabla.misCasillas[7][i].getchar() == '◎') {
                 Tabla.misCasillas[7][i].setCont(dBlanca);
-                Tabla.misCasillas[7][i].setChar('⛃');
+                Tabla.misCasillas[7][i].setChar('⛉');
             }
         }
 

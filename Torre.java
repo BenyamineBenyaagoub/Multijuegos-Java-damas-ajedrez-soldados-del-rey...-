@@ -23,7 +23,7 @@ public class Torre extends Piezas {
     }
 
     public boolean mov(int a, int b, int c, int d) {
-        if (obstaculo(a, b, c, d)) {
+        if (obstaculoTorre(a, b, c, d)) {
 
             return false;
         }
@@ -54,7 +54,7 @@ public class Torre extends Piezas {
         return false;
     }
 
-    public static boolean obstaculo(int a, int b, int a1, int b1) {
+    public static boolean obstaculoTorre(int a, int b, int a1, int b1) {
 
         if (a == a1) {
             if (b < b1) {
