@@ -10,15 +10,16 @@ package LeAjedrez;
  * @author Javier
  */
 import java.io.*;
+import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-public class InTheLine {
+import java.util.regex.Pattern;import java.io.*;
+public class InTheLine implements Serializable {
     
     private final int port = 9000;
-    Casilla[][] casilla = null;
+    Tabla tabla = Tabla.tabla;
     String destiAddres;
     Socket clientSoc;
     ServerSocket serverSoc;
@@ -29,21 +30,21 @@ public class InTheLine {
         this.destiAddres = destiAddres;
     }
 
-    public Casilla[][] initServer(){
+    public Tabla initServer(){
         try {
             serverSoc = new ServerSocket(port);
             clientSoc = serverSoc.accept();
 
             entrada = new ObjectInputStream(clientSoc.getInputStream());
             sortida = new ObjectOutputStream(clientSoc.getOutputStream());
-            casilla = (Casilla[][]) entrada.readObject();
+            tabla = (Tabla) entrada.readObject();
 
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return casilla;
+        return tabla;
     }
 
     public void initClient(String ip){
@@ -58,7 +59,7 @@ public class InTheLine {
         }
     }
 
-    public void envia(Casilla[][] a){
+    public void envia(Tabla a){
         try {
             sortida.writeObject(a);
             sortida.flush();
@@ -67,24 +68,24 @@ public class InTheLine {
         }
     }
 
-    public Casilla[][] reb(){
+    public Tabla reb(){
         try {
 
-            casilla = (Casilla[][]) entrada.readObject();
+            tabla = (Tabla) entrada.readObject();
 
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return casilla;
+        return tabla;
     }
 
 
 
 
-    public Casilla[][] getTauler() {
-        return casilla;
+    public Tabla getTauler() {
+        return tabla;
     }
 }
 

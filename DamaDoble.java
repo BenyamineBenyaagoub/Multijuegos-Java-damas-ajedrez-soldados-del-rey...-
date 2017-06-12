@@ -74,64 +74,6 @@ public class DamaDoble extends Piezas {
     static int fila;
     static int columna;
 
-////    public static boolean segundoSaltoBlancas(int a, int b) {
-////        if (b <= 1) {
-////            return false;
-////        }
-////        if (Tabla.misCasillas[a + 1][b - 1].cont != null) {
-////         if (Tabla.misCasillas[a + 2][b - 2].cont == null && Tabla.misCasillas[a + 1][b - 1].cont.getcolor() == false) {
-////            segunndomov(a, b,'⛉');
-////            return true;
-////
-////        }   
-////        }
-////        
-////        if (b <= 6 || a <= 6) {
-////            return false;
-////        }
-////        if (Tabla.misCasillas[a + 1][b + 1].cont != null) {
-////         if (Tabla.misCasillas[a + 2][b + 2].cont == null && Tabla.misCasillas[a + 1][b + 1].cont.getcolor() == false) {
-////            segunndomov(a, b,'⛉');
-////            return true;
-////        }   
-////        }
-////        
-////        System.out.println("nada");
-////        return false;
-////    }
-////
-////    public static boolean segundoSaltoNegras(int a, int b) {
-////        if (b <= 1) {
-////            return false;
-////        }
-////        if (Tabla.misCasillas[a - 1][b + 1].cont != null) {
-////            if (Tabla.misCasillas[a - 2][b + 2].cont == null && Tabla.misCasillas[a - 1][b + 1].cont.getcolor() == true) {
-////                segunndomov(a, b, '⛊');
-////                return true;
-////            }
-////        }
-////        if (b <= 6 || a <= 1) {
-////            return false;
-////        }
-////        if (Tabla.misCasillas[a - 1][b - 1].cont != null) {
-////          if (Tabla.misCasillas[a - 2][b - 2].cont == null && Tabla.misCasillas[a - 1][b - 1].cont.getcolor() == true) {
-////            segunndomov(a, b,'⛊');
-////            return true;
-////        }  
-////        }
-////        
-////
-////        return false;
-////    }
-////
-////    public static void bon(int a, int b) {
-////        if (Tabla.misCasillas[a][b].cont.getcolor()) {
-////            segundoSaltoBlancas(a, b);
-////        } else {
-////            segundoSaltoNegras(a, b);
-////        }
-////    }
-// metodo que si es dama doble ejecute otro segundo mov
 public static boolean segundoSaltoBlancasIzquierda(int a, int b, boolean piezaQuitar, char piezaPoner) {
 
         if (b <= 1 || a >= 6) {

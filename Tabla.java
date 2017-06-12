@@ -13,11 +13,28 @@ import java.util.Scanner;
  * @author Javier
  */
 public class Tabla implements Serializable {
-
+    static Tabla tabla = new Tabla(); 
     private static final int mida = 8;
 
     static Casilla[][] misCasillas = new Casilla[mida][mida];
     Casilla[][] pro = new Casilla[mida][mida];
+    
+    InTheLine online = new InTheLine();
+    
+    public void initClient(String ip){
+        online.initClient(ip);
+    }
+    
+    public void initServer(){
+        tabla = online.initServer();
+    }
+    
+    public void envia(){
+        online.envia(tabla);
+    }
+    public void recibe(){
+        tabla = online.reb();
+    }
 
     public void guarda() {
         Guardar.guardar(misCasillas);

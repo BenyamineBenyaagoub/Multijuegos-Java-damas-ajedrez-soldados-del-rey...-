@@ -23,7 +23,9 @@ public class DamaChina extends Piezas {
 
     @Override
     public boolean mov(int a, int b, int a1, int b1) {
-
+        if (InArray.inArray(a1,b1,8)) {
+            
+        
         if (salto(a, b, a1, b1)) {
             return true;
         }
@@ -39,7 +41,7 @@ public class DamaChina extends Piezas {
             }
 
         }
-
+}
         return false;
     }
 

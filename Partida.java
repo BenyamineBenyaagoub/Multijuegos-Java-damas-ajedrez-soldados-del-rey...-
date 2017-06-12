@@ -1,8 +1,3 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package LeAjedrez;
 
 /**
@@ -12,23 +7,43 @@ package LeAjedrez;
 import java.util.Scanner;
 
 public class Partida {
-   
-    public static Tabla getTabla(){
-        Tabla t = new Tabla();
-        return t;
+    
+    public static Tabla getTabla() {
+        
+        return Tabla.tabla;
     }
+
     public static void main(String[] args) {
-       Guardar.Ecargar();
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟");
+        System.out.println("Online : 1");
+        System.out.println("local : 2");
+        int opcion = sc.nextInt();
+        if (opcion == 1) {
+            System.out.println("1 : servidor");
+            System.out.println("2 : cliente");
+            int a = sc.nextInt();
+            if (a == 1) {
+                getTabla().initServer();
+            } else {
+                System.out.println("ip:");
+                String ip = sc.nextLine();
+                ip = sc.nextLine();
+                getTabla().initClient(ip);
+            }            
+        }
+        
+        Guardar.Ecargar();
         getTabla().carga();
         
         if (!(Guardar.exi())) {
-           EleccionDeJuego.elige();
+            System.out.println("No tienes ninguna partida guardada!");
+            EleccionDeJuego.elige();
         }
- 
+        
         boolean loop = true;
-
+        
         getTabla().getT();
         while (loop) {
             
@@ -41,24 +56,28 @@ public class Partida {
             int fila = sc.nextInt();
             System.out.println("columna");
             int columna = sc.nextInt();
-            if (getTabla().mover(fila1, columna1,fila, columna) ) {
+            if (getTabla().mover(fila1, columna1, fila, columna)) {
                 Turnos.cambiarTurno();
             }
-             if (Dama.SegundoSalto) {
-                        Dama.boNDama(fila, columna);
-                    } else if (DamaDoble.otra) {
-                        DamaDoble.bon(fila, columna);
-                    }
-           
-            getTabla().tabla();
-            getTabla().getT();           
-            getTabla().guarda();
-             
-            if (EleccionDeJuego.eleccionVictoria()) {
-               loop = false; 
+            if (Dama.SegundoSalto) {
+                Dama.boNDama(fila, columna);
+            } else if (DamaDoble.otra) {
+                DamaDoble.bon(fila, columna);
             }
-           
+            
+            getTabla().tabla();
+            getTabla().getT();            
+            getTabla().guarda();
+            if (opcion == 1) {
+                getTabla().envia();
+                getTabla().recibe();
+            }
+            
+            if (EleccionDeJuego.eleccionVictoria()) {
+                loop = false;                
+            }
+            
         }
-
+        
     }
 }
