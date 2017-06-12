@@ -36,10 +36,10 @@ public class EleccionDeJuego implements Serializable {
                 PosicionInicial.colocarFichasDamas();
                 break;
             case 3:
-                PosicionInicial.soldadosRey();
+                PosicionInicial.colocarFichasSoldadosDelRey();
                 break;
             case 4:
-                PosicionInicial.piezasChinas();
+                PosicionInicial.colocarFichasDamasChinas();
                 break;
            
                

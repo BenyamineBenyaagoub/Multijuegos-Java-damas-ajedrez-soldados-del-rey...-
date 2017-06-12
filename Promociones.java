@@ -15,18 +15,19 @@ import java.util.Scanner;
 public class Promociones implements Serializable {
 
     public static void ascention() {
-        ascentionPeon();
-        ascentionDama();
+       ascentionPeon();
+       ascentionDama();
     }
 
     public static void ascentionPeon() {
 
         for (int i = 0; i < 6; i++) {
-            if (Tabla.misCasillas[7][i].getchar() == '♟') {
+            
+            if (Tabla.misCasillas[7][i].cont != null && Tabla.misCasillas[7][i].getchar() == '♟') {
                 cambio(false, 7, i);
                 
             }
-            if (Tabla.misCasillas[0][i].getchar() == '♙') {
+            if (Tabla.misCasillas[0][i].cont != null && Tabla.misCasillas[0][i].getchar() == '♙') {
                 cambio(true, 0, i);
 
             }
@@ -38,12 +39,12 @@ public class Promociones implements Serializable {
         DamaDoble dBlanca = new DamaDoble(true);
         DamaDoble dNegra = new DamaDoble(false);
         for (int i = 0; i < 6; i++) {
-            if (Tabla.misCasillas[0][i].getchar() == '◙') {
+            if (Tabla.misCasillas[0][i].cont != null && Tabla.misCasillas[0][i].getchar() == '◙') {
 
                 Tabla.misCasillas[0][i].setCont(dNegra);
                 Tabla.misCasillas[0][i].setChar('⛊');
             }
-            if (Tabla.misCasillas[7][i].getchar() == '◎') {
+            if (Tabla.misCasillas[7][i].cont != null && Tabla.misCasillas[7][i].getchar() == '◎') {
                 Tabla.misCasillas[7][i].setCont(dBlanca);
                 Tabla.misCasillas[7][i].setChar('⛉');
             }

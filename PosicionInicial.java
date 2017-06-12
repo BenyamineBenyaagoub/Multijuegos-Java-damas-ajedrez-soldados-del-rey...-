@@ -88,7 +88,7 @@ public class PosicionInicial implements Serializable {
         Tabla.misCasillas[alfil2N.posiciony(7)][alfil2N.posicionx(5)].setChar(alfil2N.forma);
     }
 
-    public static void colocarreyes() {
+    public static void crearReyes() {
         Piezas reyb = new Rey(false);
         Piezas reyn = new Rey(true);
         Tabla.misCasillas[reyb.posiciony(0)][reyb.posicionx(4)].setCont(reyb);
@@ -97,7 +97,7 @@ public class PosicionInicial implements Serializable {
         Tabla.misCasillas[reyn.posiciony(7)][reyn.posicionx(3)].setChar(reyn.forma);
     }
 
-    public static void colocarReinas() {
+    public static void crearReinas() {
         Piezas reinaB = new Reina(false);
         Piezas reyinaN = new Reina(true);
         Tabla.misCasillas[reinaB.posiciony(0)][reinaB.posicionx(3)].setCont(reinaB);
@@ -107,23 +107,23 @@ public class PosicionInicial implements Serializable {
     }
 
     public static void colocarFichasAjedrez() {
-        colocarreyes();
+        crearReyes();
         crearTorres();
         crearCaballos();
         crearPeones();
         crearelefantes();
-        colocarReinas();
+        crearReinas();
 
     }
 
     public static void colocarFichasDamas() {
-        damasDlancas();
-        damasDlancas1();
+        crearDamas();
+        crearDamas1();
 
     }
     static boolean nob = true;
 
-    public static void damasDlancas() {
+    public static void crearDamas() {
         for (int i = 0; i < 8; i++) {
 
             if (nob) {
@@ -132,7 +132,7 @@ public class PosicionInicial implements Serializable {
                 Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setCont(damablanca);
                 Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setChar(damablanca.forma);
                 Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setCont(damanegra);
-              Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
+                Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
                 Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setCont(damanegra);
                 Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setChar(damanegra.forma);
 
@@ -145,7 +145,7 @@ public class PosicionInicial implements Serializable {
 
     }
 
-    public static void damasDlancas1() {
+    public static void crearDamas1() {
 
         for (int i = 0; i < 8; i++) {
 
@@ -167,7 +167,7 @@ public class PosicionInicial implements Serializable {
         }
     }
 
-    public static void soldadosDelRey() {
+    public static void crearSoldadosDelRey() {
         Piezas peon[] = new Peon[8];
         Piezas peonN[] = new Peon[8];
 
@@ -188,13 +188,13 @@ public class PosicionInicial implements Serializable {
 
     }
 
-    public static void soldadosRey() {
-        soldadosDelRey();
-        colocarreyes();
+    public static void colocarFichasSoldadosDelRey() {
+        crearSoldadosDelRey();
+        crearReyes();
 
     }
-    
-    public static void damasChinas() {
+
+    public static void crearDamasChinas() {
         for (int i = 0; i < 8; i++) {
 
             if (nob) {
@@ -203,7 +203,7 @@ public class PosicionInicial implements Serializable {
                 Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setCont(damablanca);
                 Tabla.misCasillas[damablanca.posiciony(1)][damablanca.posicionx(i)].setChar(damablanca.forma);
                 Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setCont(damanegra);
-              Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
+                Tabla.misCasillas[damanegra.posiciony(5)][damanegra.posicionx(i)].setChar(damanegra.forma);
                 Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setCont(damanegra);
                 Tabla.misCasillas[damanegra.posiciony(7)][damanegra.posicionx(i)].setChar(damanegra.forma);
 
@@ -216,7 +216,7 @@ public class PosicionInicial implements Serializable {
 
     }
 
-    public static void damasChinas1() {
+    public static void crearDamasChinas1() {
 
         for (int i = 0; i < 8; i++) {
 
@@ -237,20 +237,13 @@ public class PosicionInicial implements Serializable {
             }
         }
     }
-     public static void piezasChinas() {
-        damasChinas1();
-        damasChinas();
+
+    public static void colocarFichasDamasChinas() {
+        crearDamasChinas1();
+        crearDamasChinas();
 
     }
-    
+
 }
-//
-//    public static void posepeonesb(){
-//        
-//        Piezas peon1 = new Peon(true);
-//        t.misCasillas[1][1].setCont(peon1);
-//        t.misCasillas[1][1].setChar(peon1.getforma);
-////        t.tab (peon1.posicionx(1), peon1.posiciony(1),peon1);
-//        
-//    }
+
 

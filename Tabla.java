@@ -12,32 +12,30 @@ import java.util.Scanner;
  *
  * @author Javier
  */
-
 public class Tabla implements Serializable {
 
     private static final int mida = 8;
-    
+
     static Casilla[][] misCasillas = new Casilla[mida][mida];
     Casilla[][] pro = new Casilla[mida][mida];
-    public  void guarda(){
+
+    public void guarda() {
         Guardar.guardar(misCasillas);
     }
-    
-    public void carga(){
+
+    public void carga() {
         if (Guardar.exi()) {
-             misCasillas = Guardar.cargar();
-        }else{
-            t();
+            misCasillas = Guardar.cargar();
+        } else {
+            tabla();
         }
-       
+
     }
-    
 
 //    public Tabla() {
-//        this.t();
+//        this.tabla();
 //    }
-
-    void t(){
+    void tabla() {
         int pre = 0;
         for (int y = 0; y < mida; y++) {
             if (pre == 0) {
@@ -90,8 +88,8 @@ public class Tabla implements Serializable {
         this.b = b;
 
     }
-    
-     public static boolean dentro(int... nums) {
+
+    public static boolean dentro(int... nums) {
         for (int num : nums) {
             if (num > 7 || num < 0) {
                 return false;
@@ -100,7 +98,7 @@ public class Tabla implements Serializable {
         return true;
     }
 
-    public void mover(int a, int b,int c, int d) {
+    public boolean mover(int a, int b, int c, int d) {
         if (misCasillas[a][b].cont.getcolor() == Turnos.elTurno) {
             if (misCasillas[a][b].cont.mov(a, b, c, d)) {
                 if (misCasillas[c][d].noTienePieza() || misCasillas[c][d].cont.getcolor() == true) {
@@ -109,27 +107,20 @@ public class Tabla implements Serializable {
                     misCasillas[a][b].cont.movimientos++;
                     misCasillas[a][b] = null;
                     misCasillas[c][d] = pro[a][b];
-                    if (Dama.SegundoSalto) {
-                         Dama.boNDama(c, d); 
-                    }else if(DamaDoble.otra){
-                        DamaDoble.bon(c,d);
-                    }
-                  
-                    Turnos.cambiarTurno();
-
+                   
+                    return true;
                 } else {
-
-                    System.out.println("**********no se puede mover ahi**********");
-
+                    System.out.println("No puede realizar ese movimiento.");
                 }
             } else {
-                System.out.println("fuera");
+                System.out.println("No puede realizar ese movimiento.");
             }
 
         } else {
             System.out.println(" intenta mover otro color :3");
 
         }
+        return false;
     }
 //    public void mover(int c, int d) {
 //      
