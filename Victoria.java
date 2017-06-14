@@ -56,7 +56,7 @@ public class Victoria implements Serializable {
     public static boolean victoriaDamasBlancas() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (Tabla.misCasillas[i][j].getchar() == '⛊' || Tabla.misCasillas[i][j].getchar() == '◙') {
+                if (Tabla.misCasillas[i][j].getchar() == 'N' || Tabla.misCasillas[i][j].getchar() == '◙') {
 
                     return false;
                 }
@@ -70,7 +70,7 @@ public class Victoria implements Serializable {
     public static boolean victoriaDamasNegras() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (Tabla.misCasillas[i][j].getchar() == '⛉' || Tabla.misCasillas[i][j].getchar() == '◎') {
+                if (Tabla.misCasillas[i][j].getchar() == 'B' || Tabla.misCasillas[i][j].getchar() == '◎') {
 
                     return false;
                 }

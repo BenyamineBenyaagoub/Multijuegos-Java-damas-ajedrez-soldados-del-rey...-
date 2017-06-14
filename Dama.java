@@ -73,7 +73,7 @@ public class Dama extends Piezas {
 
                 }
                 if (Tabla.misCasillas[a + 1][b - 1].cont != null) {
-                    if (Tabla.misCasillas[a + 1][b - 1].cont.forma == '◙' || Tabla.misCasillas[a + 1][b + 1].cont.forma == '⛊') {
+                    if (Tabla.misCasillas[a + 1][b - 1].cont.forma == '◙' || Tabla.misCasillas[a + 1][b + 1].cont.forma == 'N') {
                         Tabla.misCasillas[a + 1][b - 1].setCont(null);
                         Tabla.misCasillas[a + 1][b - 1].setChar('▓');
                         SegundoSalto = true;
@@ -88,7 +88,7 @@ public class Dama extends Piezas {
                     return false;
                 }
                 if (Tabla.misCasillas[a + 1][b + 1].cont != null) {
-                    if (Tabla.misCasillas[a + 1][b + 1].cont.forma == '◙' || Tabla.misCasillas[a + 1][b + 1].cont.forma == '⛊') {
+                    if (Tabla.misCasillas[a + 1][b + 1].cont.forma == '◙' || Tabla.misCasillas[a + 1][b + 1].cont.forma == 'N') {
                         Tabla.misCasillas[a + 1][b + 1].setCont(null);
                         Tabla.misCasillas[a + 1][b + 1].setChar('▓');
 

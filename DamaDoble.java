@@ -17,9 +17,9 @@ public class DamaDoble extends Piezas {
 
         super.setColor(colorcito);
         if (colorcito) {
-            super.setforma('⛉');
+            super.setforma('B');
         } else {
-            super.setforma('⛊');
+            super.setforma('N');
         }
 
     }
@@ -29,7 +29,7 @@ public class DamaDoble extends Piezas {
 
             return true;
         }
-        if (Tabla.misCasillas[a][b].cont.getforma() == '⛊' || Tabla.misCasillas[a][b].cont.getforma() == '⛉') {
+        if (Tabla.misCasillas[a][b].cont.getforma() == 'N' || Tabla.misCasillas[a][b].cont.getforma() == 'B') {
             if (Math.abs(a1 - a) == Math.abs(1) && Math.abs(b1 - b) == Math.abs(1)) {
                 return true;
             }
@@ -40,7 +40,7 @@ public class DamaDoble extends Piezas {
     public static boolean otra = false;
 
     public static boolean comer(int a, int b, int a1, int b1) {
-        if (Tabla.misCasillas[a][b].cont.getforma() == '⛊' || Tabla.misCasillas[a][b].cont.getforma() == '⛉') {
+        if (Tabla.misCasillas[a][b].cont.getforma() == 'N' || Tabla.misCasillas[a][b].cont.getforma() == 'B') {
 
             if (Math.abs(a1 - a) == Math.abs(2) && Math.abs(b1 - b) == Math.abs(2)) {
                 if (Tabla.misCasillas[a][b].cont.getcolor()) {
@@ -55,8 +55,8 @@ public class DamaDoble extends Piezas {
                     }
                 }
                 if (Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont != null) {
-                    if (Tabla.misCasillas[a][b].cont.getforma() == '⛉' && (Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == '◙' || Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == '⛊')
-                            || Tabla.misCasillas[a][b].cont.getforma() == '⛊' && (Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == '◎' || Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == '⛉')) {
+                    if (Tabla.misCasillas[a][b].cont.getforma() == 'B' && (Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == '◙' || Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == 'N')
+                            || Tabla.misCasillas[a][b].cont.getforma() == 'N' && (Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == '◎' || Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].cont.forma == 'B')) {
                         Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].setCont(null);
                         Tabla.misCasillas[(a1 + a) / 2][(b1 + b) / 2].setChar('▓');
                         otra = true;
@@ -77,10 +77,10 @@ public class DamaDoble extends Piezas {
 
     
       public static void bon(int a, int b) {
-        if (Tabla.misCasillas[a][b].getchar() == '⛉') {
-            InArray.segundoSaltoNe(a, b,false,'⛉');
+        if (Tabla.misCasillas[a][b].getchar() == 'B') {
+            InArray.segundoSaltoNe(a, b,false,'B');
         } else {
-            InArray.segundoSaltoNe(a, b,true,'⛊');
+            InArray.segundoSaltoNe(a, b,true,'N');
         }
     }
     
