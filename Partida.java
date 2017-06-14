@@ -12,13 +12,25 @@ public class Partida {
         
         return Tabla.tabla;
     }
+    static boolean elTurno;
+    static int turno;
+    
+    
+    static void cambioTurno(){
+        if (turno%2==0) {
+            elTurno = true;
+        }else{
+            elTurno= false;
+        }
+    }
 
     public static void main(String[] args) {
+       
         
         Scanner sc = new Scanner(System.in);
         System.out.println("♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟");
-        System.out.println("Online : 1");
-        System.out.println("local : 2");
+        System.out.println("OnLine : 1");
+        System.out.println("OffLine : 2");
         int opcion = sc.nextInt();
         if (opcion == 1) {
             System.out.println("1 : servidor");
@@ -57,7 +69,7 @@ public class Partida {
             System.out.println("columna");
             int columna = sc.nextInt();
             if (getTabla().mover(fila1, columna1, fila, columna)) {
-                Turnos.cambiarTurno();
+                cambioTurno();
             }
             if (Dama.SegundoSalto) {
                 Dama.boNDama(fila, columna);
@@ -76,6 +88,7 @@ public class Partida {
             if (EleccionDeJuego.eleccionVictoria()) {
                 loop = false;                
             }
+            turno ++;
             
         }
         

@@ -116,7 +116,7 @@ public class Tabla implements Serializable {
     }
 
     public boolean mover(int a, int b, int c, int d) {
-        if (misCasillas[a][b].cont.getcolor() == Turnos.elTurno) {
+        if (misCasillas[a][b].cont.getcolor() == Partida.elTurno) {
             if (misCasillas[a][b].cont.mov(a, b, c, d)) {
                 if (misCasillas[c][d].noTienePieza() || misCasillas[c][d].cont.getcolor() == true) {
 

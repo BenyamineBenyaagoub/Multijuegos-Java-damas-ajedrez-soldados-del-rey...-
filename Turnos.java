@@ -13,22 +13,21 @@ import java.io.Serializable;
  */
 
 public class Turnos  implements Serializable{
-    static boolean elTurno;
-    static int turno = 2;
- public static void cambiarTurno(){
-
     
-     
-     if (turno == 2){
-         turno = 1;
-         System.out.println("Turno del jugador 2" );
-         elTurno = true;
-     }else{
-         turno = 2;
-         System.out.println("Turno del jugador 1");
-         elTurno= false;
-     }
-     
- }
+// public static void cambiarTurno(){
+//
+//    
+//     
+//     if (turno == 2){
+//         turno = 1;
+//         System.out.println("Turno del jugador 2" );
+//         elTurno = true;
+//     }else{
+//         turno = 2;
+//         System.out.println("Turno del jugador 1");
+//         elTurno= false;
+//     }
+//     
+// }
  
 }

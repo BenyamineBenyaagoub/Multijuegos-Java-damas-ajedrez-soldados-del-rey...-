@@ -16,7 +16,7 @@ public class Dama extends Piezas {
     static int fila;
     static int columna;
     public static boolean SegundoSalto = false;
-    
+
     public Dama(boolean colorcito) {
 
         super.setColor(colorcito);
@@ -49,13 +49,7 @@ public class Dama extends Piezas {
 
         return false;
     }
-    
-    
-    
-    
-    
 
-    
     public static boolean comer(int a, int b, int a1, int b1) {
 
         if (comerBlancas(a, b, a1, b1) || comerNegras(a, b, a1, b1)) {
@@ -149,87 +143,21 @@ public class Dama extends Piezas {
 
     }
 
-    public static boolean segundoSaltoBlancasIzquierda(int a, int b, boolean piezaQuitar, char piezaPoner) {
 
-        if (b <= 1 || a >= 6) {
-            return false;
-        }
-        if (Tabla.misCasillas[a + 1][b - 1].cont != null) {
-            if (Tabla.misCasillas[a + 2][b - 2].cont == null && Tabla.misCasillas[a + 1][b - 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public static boolean segundoSaltoBlancasDerecha(int a, int b,boolean piezaQuitar, char piezaPoner) {
-
-        if (b <= 6 || a >= 6) {
-            return false;
-        }
-        if (Tabla.misCasillas[a + 1][b + 1].cont != null) {
-            if (Tabla.misCasillas[a + 2][b + 2].cont == null && Tabla.misCasillas[a + 1][b + 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-
-        }
-
-        return false;
-    }
-
-  
-
-    public static boolean segundoSaltoNegrasDerecha(int a, int b,boolean piezaQuitar, char piezaPoner) {
-        if (b >= 6 || a <= 1) {
-            return false;
-        }
-        if (Tabla.misCasillas[a - 1][b + 1].cont != null) {
-            if (Tabla.misCasillas[a - 2][b + 2].cont == null && Tabla.misCasillas[a - 1][b + 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean segundoSaltoNegrasIzquierda(int a, int b,boolean piezaQuitar, char piezaPoner) {
-        if (b <= 2 || a <= 1) {
-            return false;
-        }
-
-        if (Tabla.misCasillas[a - 1][b - 1].cont != null) {
-            if (Tabla.misCasillas[a - 2][b - 2].cont == null && Tabla.misCasillas[a - 1][b - 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean segundoSaltoNegrasYBlancas(int a, int b,boolean piezaQuitar, char piezaPoner) {
-        if (segundoSaltoNegrasDerecha(a, b,piezaQuitar,  piezaPoner) || segundoSaltoNegrasIzquierda(a, b,piezaQuitar,  piezaPoner)) {
-            return true;
-        }
-        if (segundoSaltoBlancasDerecha(a, b,piezaQuitar, piezaPoner) || segundoSaltoBlancasIzquierda(a, b,piezaQuitar,  piezaPoner)) {
-            return true;
-        }
-        return false;
-    }
-
+   
+   
 
     public static void boNDama(int a, int b) {
         if (Tabla.misCasillas[a][b].getchar() == '◎') {
-            segundoSaltoNegrasYBlancas(a, b,false,'◎');;
+            
+            InArray.segundoSaltoNe(a, b, false, '◎');
         } else {
-            segundoSaltoNegrasYBlancas(a, b,true,'◙');
+            InArray.segundoSaltoNe(a, b, true, '◙');
         }
     }
 
     public static void segunndomov(int a, int b, char e) {
-        
+
         Scanner sc = new Scanner(System.in);
         Dama damablanca = new Dama(true);
         Dama damaNegra = new Dama(false);

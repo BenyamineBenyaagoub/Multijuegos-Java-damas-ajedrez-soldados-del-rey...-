@@ -74,81 +74,13 @@ public class DamaDoble extends Piezas {
     static int fila;
     static int columna;
 
-public static boolean segundoSaltoBlancasIzquierda(int a, int b, boolean piezaQuitar, char piezaPoner) {
 
-        if (b <= 1 || a >= 6) {
-            return false;
-        }
-        if (Tabla.misCasillas[a + 1][b - 1].cont != null) {
-            if (Tabla.misCasillas[a + 2][b - 2].cont == null && Tabla.misCasillas[a + 1][b - 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public static boolean segundoSaltoBlancasDerecha(int a, int b,boolean piezaQuitar, char piezaPoner) {
-
-        if (b <= 6 || a >= 6) {
-            return false;
-        }
-        if (Tabla.misCasillas[a + 1][b + 1].cont != null) {
-            if (Tabla.misCasillas[a + 2][b + 2].cont == null && Tabla.misCasillas[a + 1][b + 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-
-        }
-
-        return false;
-    }
-
-  
-
-    public static boolean segundoSaltoNegrasDerecha(int a, int b,boolean piezaQuitar, char piezaPoner) {
-        if (b >= 6 || a <= 1) {
-            return false;
-        }
-        if (Tabla.misCasillas[a - 1][b + 1].cont != null) {
-            if (Tabla.misCasillas[a - 2][b + 2].cont == null && Tabla.misCasillas[a - 1][b + 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean segundoSaltoNegrasIzquierda(int a, int b,boolean piezaQuitar, char piezaPoner) {
-        if (b <= 2 || a <= 1) {
-            return false;
-        }
-
-        if (Tabla.misCasillas[a - 1][b - 1].cont != null) {
-            if (Tabla.misCasillas[a - 2][b - 2].cont == null && Tabla.misCasillas[a - 1][b - 1].cont.getcolor() == piezaQuitar) {
-                segunndomov(a, b, piezaPoner);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean segundoSaltoNegrasYBlancas(int a, int b,boolean piezaQuitar, char piezaPoner) {
-        if (segundoSaltoNegrasDerecha(a, b,piezaQuitar,  piezaPoner) || segundoSaltoNegrasIzquierda(a, b,piezaQuitar,  piezaPoner)) {
-            return true;
-        }
-        if (segundoSaltoBlancasDerecha(a, b,piezaQuitar, piezaPoner) || segundoSaltoBlancasIzquierda(a, b,piezaQuitar,  piezaPoner)) {
-            return true;
-        }
-        return false;
-    }
     
       public static void bon(int a, int b) {
-        if (Tabla.misCasillas[a][b].getchar() == '◎') {
-            segundoSaltoNegrasYBlancas(a, b,false,'◎');;
+        if (Tabla.misCasillas[a][b].getchar() == '⛉') {
+            InArray.segundoSaltoNe(a, b,false,'⛉');
         } else {
-            segundoSaltoNegrasYBlancas(a, b,true,'◙');
+            InArray.segundoSaltoNe(a, b,true,'⛊');
         }
     }
     
